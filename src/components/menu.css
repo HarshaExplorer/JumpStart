@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap');
+
+
+.mono-logo {
+    font-family: "Major Mono Display", monospace;
+    font-weight: 500;
+    font-size: larger;
+    font-style: normal;
+}
+
+.sanchez-regular {
+  font-family: "Sanchez", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nlink-reset{
+  text-decoration: none;
+  color: inherit;
+}
+
+.nlink:hover{
+  color: #277150;
+}
+
+.auth-link-reset {
+  text-decoration: none;
+}
+.auth-link:hover{
+  color: #ffffff;
+}
+
+.logo-color {
+  color: #27e690;
+}
+
+.logo-space {
+  padding-right: 15%;
+}
+
+.nav-space {
+  padding-right: 10%;
+}
