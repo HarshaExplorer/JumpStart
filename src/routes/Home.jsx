@@ -15,7 +15,7 @@ const Home = ({ token, setToken }) => {
     typeRef.current.textContent = ""; // Clear existing content
 
     let i = 0;
-    const speed = 20;
+    const speed = 15;
 
     const typeWriter = () => {
       if (i < text.length) {
@@ -32,19 +32,16 @@ const Home = ({ token, setToken }) => {
     <div className="landing-container">
       <div className="landing-content">
         <h1 className="landing-name">JumpStart.</h1>
-        <h1 className="landing-title">Your Journey Starts here.</h1>
+        <h1 className="landing-title">
+          JumpStart: Empowering Innovators, Fueling Dreams.!
+        </h1>
         <h2 ref={typeRef} className="landing-h2">
-          {/* Add your text content here */}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+          {}
+          At JumpStart, we're more than a platform – we're a launchpad for
+          dreams. Here, innovation finds its voice, and passion fuels progress.
+          JumpStart empowers you to turn potential into reality. Join us in
+          shaping the future.
         </h2>
-        <Link to="/" className="logout-btn" onClick={handleLogout}>
-          Logout
-        </Link>
       </div>
     </div>
   );
