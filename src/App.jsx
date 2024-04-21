@@ -7,8 +7,10 @@ import Discover from './routes/Discover'
 import Manage from './routes/Manage'
 import Register from './routes/Register'
 import Auth from './routes/Auth'
-import ResetEmail from './components/ResetEmail'
+import ResetEmail from './routes/ResetEmail'
+import ResetPassword from './routes/ResetPassword';
 import Logout from './routes/Logout';
+import BadRequest from './components/BadRequest'
 
 function App() {
 
@@ -59,8 +61,16 @@ function App() {
         element: <ResetEmail />
       },
       {
+        path: "/update-password",
+        element: <ResetPassword />
+      },
+      {
         path: "/logout",
         element: <Logout token={token} setToken={setToken} />
+      },
+      {
+        path: "*",
+        element: <BadRequest />
       }
 
     ]
