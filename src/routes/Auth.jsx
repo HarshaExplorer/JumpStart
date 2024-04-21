@@ -15,6 +15,12 @@ const Auth = ({setToken}) => {
     }
   }, [])
   
+  const updatedb = async (data) => {
+   const userin = await database.from('users').select().eq('id',`${data.user.id}`);
+   if(userin.data.length === 0)
+      await database.from('users').insert({id: data.user.id, email: `${data.user.email}`, full_name: `${data.user.user_metadata.fullname}`});
+ }
+
   const [formData, setFormData] = useState({
        email:'', password:''
   })
@@ -34,6 +40,7 @@ const Auth = ({setToken}) => {
 
         if(data.user){
            setToken(data);
+           updatedb(data);
            navigate('/manage');
         }
         else {
@@ -46,8 +53,6 @@ const Auth = ({setToken}) => {
        alert(error);
      }
   }
-
-  
 
   return (
    <div className='login-container mx-auto'>
