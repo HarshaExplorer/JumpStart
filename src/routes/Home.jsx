@@ -33,7 +33,7 @@ const Home = ({ token, setToken }) => {
       <div className="landing-content">
         <h1 className="landing-name">JumpStart.</h1>
         <h1 className="landing-title">
-          JumpStart: Empowering Innovators, Fueling Dreams.!
+          JumpStart: Empowering Innovators, Fueling Dreams.
         </h1>
         <h2 ref={typeRef} className="landing-h2">
           {}
