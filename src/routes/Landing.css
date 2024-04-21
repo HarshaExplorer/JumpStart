@@ -24,8 +24,23 @@
 }
 
 .landing-title {
-  font-size: 48px;
+  font-size: 30px;
   color: #fff; /* White text */
+  margin-bottom: 20px;
+}
+
+.landing-name {
+  font-size: 100px;
+  color: #fff; /* White text */
+  margin-bottom: 20px;
+}
+
+.landing-h2 {
+  font-size: 32px;
+  color: #fff;
+  position: relative;
+  padding: 100px 200px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
