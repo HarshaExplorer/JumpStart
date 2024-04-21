@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import useTypewriter from "./useTypeWriter.js";
 
 const Home = ({ token, setToken }) => {
   const handleLogout = () => {
@@ -8,25 +9,9 @@ const Home = ({ token, setToken }) => {
     setToken(null);
   };
 
-  const typeRef = useRef(null);
-
-  useEffect(() => {
-    const text = typeRef.current.textContent.trim();
-    typeRef.current.textContent = ""; // Clear existing content
-
-    let i = 0;
-    const speed = 15;
-
-    const typeWriter = () => {
-      if (i < text.length) {
-        typeRef.current.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-      }
-    };
-
-    typeWriter();
-  }, []);
+  const fullText =
+    "At JumpStart, we're more than a platform – we're a launchpad for dreams. Here, innovation finds its voice, and passion fuels progress. JumpStart empowers you to turn potential into reality. Join us in shaping the future.";
+  const displayText = useTypewriter(fullText);
 
   return (
     <div className="landing-container">
@@ -35,13 +20,7 @@ const Home = ({ token, setToken }) => {
         <h1 className="landing-title">
           JumpStart: Empowering Innovators, Fueling Dreams.
         </h1>
-        <h2 ref={typeRef} className="landing-h2">
-          {}
-          At JumpStart, we're more than a platform – we're a launchpad for
-          dreams. Here, innovation finds its voice, and passion fuels progress.
-          JumpStart empowers you to turn potential into reality. Join us in
-          shaping the future.
-        </h2>
+        <h2 className="landing-h2">{displayText}</h2>
       </div>
     </div>
   );
