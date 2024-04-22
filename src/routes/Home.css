@@ -4,6 +4,12 @@ body {
   font-family: "Sanchez", serif;
 }
 
+.kanit-bold {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 .landing-container {
   width: 100%;
   height: 100vh;
