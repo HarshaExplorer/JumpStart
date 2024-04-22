@@ -17,7 +17,7 @@ const Menu = ({token}) => {
              </Nav>
 
              <Nav className=" ml-auto justity-content-center">
-               <Nav.Link > <Link to="/register" className="auth-link-reset"> <span className="sanchez-regular auth-link">Sign&nbsp;Up</span> </Link></Nav.Link>
+               {!token && <Nav.Link > <Link to="/register" className="auth-link-reset"> <span className="sanchez-regular auth-link">Sign&nbsp;Up</span> </Link></Nav.Link>}
                {!token && <Nav.Link > <Link to="/authenticate" className="auth-link-reset"> <span className="sanchez-regular auth-link">Log&nbsp;In</span> </Link></Nav.Link>}
                {token && <Nav.Link > <Link to="/logout" className="auth-link-reset"> <span className="sanchez-regular auth-link">Log&nbsp;Out</span> </Link></Nav.Link>}
              </Nav>

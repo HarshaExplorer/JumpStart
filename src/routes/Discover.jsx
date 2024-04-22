@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
+import QueryTool from '../components/QueryTool';
 
 const Discover = () => {
+  
+  const [resultSet, setResultSet] = useState(false);
+  
   return (
-    <div>Discover</div>
+    <> 
+       <QueryTool resultSet={resultSet} setResultSet={setResultSet}/>
+    </>
   )
 }
 

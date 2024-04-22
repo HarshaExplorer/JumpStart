@@ -6,13 +6,6 @@ import './Auth.css'
 
 const ResetPassword = () => {
     const navigate = useNavigate();
-
-    useEffect(() => {
-      document.body.style.backgroundColor = "#78f0ba";
-      return () => {
-         document.body.style.backgroundColor = "white";
-      }
-    }, [])
     
     const [formData, setFormData] = useState({
          password:''
