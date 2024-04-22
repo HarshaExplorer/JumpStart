@@ -16,7 +16,9 @@ const Home = ({ token, setToken }) => {
   return (
     <div className="landing-container">
       <div className="landing-content">
-        <h1 className="landing-name kanit-bold">JumpStart.</h1>
+        <h1 className="landing-name kanit-bold">
+          <span style={{ color: "#6ee397" }}>Jump</span>Start.
+        </h1>
         <h1 className="landing-title sanchez-regular">
           JumpStart: Empowering Innovators, Fueling Dreams.
         </h1>
