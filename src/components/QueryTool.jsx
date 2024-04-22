@@ -5,11 +5,12 @@ import './menu.css'
 
 const QueryTool = ({resultSet, setResultSet}) => { 
   
-  useEffect(()=>{handleSubmit();},[]);
   const [searchQuery, setSearchQuery] = useState({
       search: '',
       category: 'all',
   });
+
+  const [filterFundDesc, setFundFilter] = useState(false);
 
  const handleFilters = (e) => {
       setSearchQuery({
@@ -17,10 +18,10 @@ const QueryTool = ({resultSet, setResultSet}) => {
       });
   }
   
-  const handleFundFilter = (e) => {
+  const handleFundFilter = (isDesc) => {
      let sortedProjects = []
 
-     if(e.target.checked){
+     if(isDesc){
        sortedProjects = [...resultSet].sort((a,b)=>{
          return b.fundRatio-a.fundRatio;
         });
@@ -33,7 +34,8 @@ const QueryTool = ({resultSet, setResultSet}) => {
   }
 
   const handleSubmit = async (e) => {
-
+      
+      let sortedProjects = false;
       let query  =  database.from('projects').select();
 
       if(searchQuery.category !== 'all')
@@ -50,9 +52,19 @@ const QueryTool = ({resultSet, setResultSet}) => {
          e.fundRatio = (diff > 0) ? (Math.trunc((e.amt_pledged*100/e.amt_requested))) : (100);
          return e;
       });
-      
-      setResultSet(data);
+  
+      console.log(data);
+
+      if (filterFundDesc){
+        sortedProjects = [...data].sort((a,b)=>{
+           return b.fundRatio-a.fundRatio;
+        });
+      }
+
+      setResultSet((sortedProjects)?(sortedProjects):(data))
   }
+
+  useEffect(()=>{handleSubmit();},[]);
 
   const handleReset = (e) => {
      setSearchQuery({     
@@ -91,7 +103,11 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
       <div className='d-flex flex-row-reverse'>
            <div className='p-3'>
-              <Form.Check type="switch" onChange={handleFundFilter} label="Most Funded"/>
+              <Form.Check type="switch" onChange={(e)=>{
+                                           setFundFilter(e.target.checked);
+                                           handleFundFilter(e.target.checked);
+                                        }}  
+              label="Most Funded"/>
            </div>
       </div>
     </>
