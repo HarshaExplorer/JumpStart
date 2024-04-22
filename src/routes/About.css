@@ -3,7 +3,7 @@
     width: 75%;
     margin: 0 auto;
   }
-  
+
   .image-container::after {
     content: "";
     display: block;
