@@ -5,10 +5,7 @@ import './menu.css'
 
 const ProjectCard = ({project, width=''}) => {
   
-  const navigate = useNavigate();
-
-  const fundRatio = (project.diff > 0) ? (Math.trunc((project.amt_pledged*100/project.amt_requested))) : (100);
-  
+  const navigate = useNavigate();  
   const today = new Date();
   const daysLeft = Math.round((Date.parse(project.deadline) - today) / (1000*60*60*24)) + 1;
   const singleDay = (daysLeft===1)?(true):(false);
@@ -26,9 +23,9 @@ const ProjectCard = ({project, width=''}) => {
             <Card.Text className='mb-2'>{project.company}</Card.Text>
             <Card.Text className='mb-1'><span className='kanit-bold'>
                 {(daysLeft > 0 ? (`${daysLeft} day`+ (singleDay?(''):('s')) + ' left' ):('Project Closed'))} ● </span>
-                {`${fundRatio}% funded`}
+                {`${project.fundRatio}% funded`}
             </Card.Text>
-            <ProgressBar className='mb-2' variant={'success'} now={fundRatio} />
+            <ProgressBar className='mb-2' variant={'success'} now={project.fundRatio} />
             <Button variant="primary" onClick={redirectProjectPage}>View</Button>
          </Card.Body>
       </Card>

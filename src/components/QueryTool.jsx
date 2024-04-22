@@ -3,20 +3,13 @@ import {Button, Form, Stack} from 'react-bootstrap'
 import database from '../client';
 import './menu.css'
 
-const QueryTool = ({resultSet, setResultSet}) => {
-
- const [searchQuery, setSearchQuery] = useState({
+const QueryTool = ({resultSet, setResultSet}) => { 
+  
+  useEffect(()=>{handleSubmit();},[]);
+  const [searchQuery, setSearchQuery] = useState({
       search: '',
       category: 'all',
- });
-
- 
-useEffect(()=>{
-   if(sessionStorage.getItem('searchQuery')){
-      let data = JSON.parse(sessionStorage.getItem('searchQuery'));
-      setSearchQuery(data);
-   }
-}, []);
+  });
 
  const handleFilters = (e) => {
       setSearchQuery({
@@ -25,26 +18,21 @@ useEffect(()=>{
   }
   
   const handleFundFilter = (e) => {
-     console.log('Before', resultSet);
      let sortedProjects = []
 
      if(e.target.checked){
        sortedProjects = [...resultSet].sort((a,b)=>{
-         return a.diff-b.diff;
+         return b.fundRatio-a.fundRatio;
         });
-        console.log('In sort most');
       }
       else
       sortedProjects = [...resultSet].sort((a,b)=>{
-          return b.diff-a.diff;
+          return a.fundRatio-b.fundRatio;
         });
-
-      console.log('After', sortedProjects);
       setResultSet(sortedProjects);  
   }
 
   const handleSubmit = async (e) => {
-      sessionStorage.setItem('searchQuery', JSON.stringify(searchQuery));
 
       var query =  database.from('projects').select();
 
@@ -55,9 +43,12 @@ useEffect(()=>{
          query = query.ilike('title',`%${searchQuery.search.trim()}%`);
       
       const {data, error} = await query;
-      data.map((e)=>{e.diff = e.amt_requested - e.amt_pledged; return e;});
+      data.map((e)=>{
+         const diff = e.amt_requested - e.amt_pledged; 
+         e.fundRatio = (diff > 0) ? (Math.trunc((e.amt_pledged*100/e.amt_requested))) : (100);
+         return e;
+      });
       
-
       setResultSet(data);
   }
 
