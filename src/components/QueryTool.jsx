@@ -78,7 +78,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
           
           <Form.Control  className='me-auto' name="search" type='text' value={searchQuery.search} onChange={handleFilters} placeholder='Search projects and businesses' />
 
-          <Button variant="outline-primary" onClick={handleSubmit}>Submit</Button>
+          <Button variant="outline-success" onClick={handleSubmit}>Submit</Button>
           <div className="vr" />
           <Button variant="outline-danger" onClick={handleReset}>Reset</Button>
 
