@@ -34,15 +34,17 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
   const handleSubmit = async (e) => {
 
-      var query =  database.from('projects').select();
+      let query  =  database.from('projects').select();
 
       if(searchQuery.category !== 'all')
         query = query.eq('category', `${searchQuery.category}`);
       
-      if(searchQuery.search !== '') 
-         query = query.ilike('title',`%${searchQuery.search.trim()}%`);
       
-      const {data, error} = await query;
+      if(searchQuery.search !== '') 
+         query = query.or(`title.ilike.%${searchQuery.search.trim()}%,company.ilike.%${searchQuery.search.trim()}%`)
+      
+      
+      const {data} = await query;
       data.map((e)=>{
          const diff = e.amt_requested - e.amt_pledged; 
          e.fundRatio = (diff > 0) ? (Math.trunc((e.amt_pledged*100/e.amt_requested))) : (100);
