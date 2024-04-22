@@ -16,11 +16,11 @@ const Home = ({ token, setToken }) => {
   return (
     <div className="landing-container">
       <div className="landing-content">
-        <h1 className="landing-name">JumpStart.</h1>
-        <h1 className="landing-title">
+        <h1 className="landing-name kanit-bold">JumpStart.</h1>
+        <h1 className="landing-title sanchez-regular">
           JumpStart: Empowering Innovators, Fueling Dreams.
         </h1>
-        <h2 className="landing-h2">{displayText}</h2>
+        <h2 className="landing-h2 sanchez-regular">{displayText}</h2>
       </div>
     </div>
   );
