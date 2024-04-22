@@ -1,15 +1,22 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {Card, Col, Row, Button, ProgressBar } from 'react-bootstrap'
 import './menu.css'
 
 const ProjectCard = ({project, width=''}) => {
- 
+  
+  const navigate = useNavigate();
+
   const fundRatio = (project.diff > 0) ? (Math.trunc((project.amt_pledged*100/project.amt_requested))) : (100);
   
   const today = new Date();
   const daysLeft = Math.round((Date.parse(project.deadline) - today) / (1000*60*60*24)) + 1;
   const singleDay = (daysLeft===1)?(true):(false);
-  console.log('width: ' + width)
+  
+  const redirectProjectPage = () => {
+       navigate(`/discover/${project.pid}`);
+  }
+
   return (
     <>
       <Card  style={{ width: width, backgroundColor: 'inherit', borderColor: '#78f0ba'}}>
@@ -22,7 +29,7 @@ const ProjectCard = ({project, width=''}) => {
                 {`${fundRatio}% funded`}
             </Card.Text>
             <ProgressBar className='mb-2' variant={'success'} now={fundRatio} />
-            <Button variant="primary">View</Button>
+            <Button variant="primary" onClick={redirectProjectPage}>View</Button>
          </Card.Body>
       </Card>
     </>

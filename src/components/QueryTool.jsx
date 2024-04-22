@@ -1,14 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Button, Form, Stack} from 'react-bootstrap'
 import database from '../client';
 import './menu.css'
 
 const QueryTool = ({resultSet, setResultSet}) => {
 
-  const [searchQuery, setSearchQuery] = useState({
+ const [searchQuery, setSearchQuery] = useState({
       search: '',
       category: 'all',
-   });
+ });
+
+ 
+useEffect(()=>{
+   if(sessionStorage.getItem('searchQuery')){
+      let data = JSON.parse(sessionStorage.getItem('searchQuery'));
+      setSearchQuery(data);
+   }
+}, []);
 
  const handleFilters = (e) => {
       setSearchQuery({
@@ -17,29 +25,27 @@ const QueryTool = ({resultSet, setResultSet}) => {
   }
   
   const handleFundFilter = (e) => {
-     if(e.target.checked)
-        resultSet.sort((a,b)=>{
-         if(a.diff < b.diff)
-            return -1;
-         else if(a.diff > b.diff)
-            return 1;
-         else
-            return 0;
+     console.log('Before', resultSet);
+     let sortedProjects = []
+
+     if(e.target.checked){
+       sortedProjects = [...resultSet].sort((a,b)=>{
+         return a.diff-b.diff;
         });
+        console.log('In sort most');
+      }
       else
-        resultSet.sort((a,b)=>{
-        if(a.diff > b.diff)
-           return -1;
-        else if(a.diff < b.diff)
-           return 1;
-        else
-           return 0;
+      sortedProjects = [...resultSet].sort((a,b)=>{
+          return b.diff-a.diff;
         });
 
-      setResultSet(resultSet);  
+      console.log('After', sortedProjects);
+      setResultSet(sortedProjects);  
   }
 
   const handleSubmit = async (e) => {
+      sessionStorage.setItem('searchQuery', JSON.stringify(searchQuery));
+
       var query =  database.from('projects').select();
 
       if(searchQuery.category !== 'all')
@@ -50,6 +56,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
       
       const {data, error} = await query;
       data.map((e)=>{e.diff = e.amt_requested - e.amt_pledged; return e;});
+      
 
       setResultSet(data);
   }

@@ -11,6 +11,7 @@ import ResetEmail from './routes/ResetEmail'
 import ResetPassword from './routes/ResetPassword';
 import Logout from './routes/Logout';
 import BadRequest from './components/BadRequest'
+import ProjectPage from './routes/ProjectPage'
 
 function App() {
 
@@ -43,6 +44,10 @@ function App() {
       {
         path: "/discover",
         element: <Discover />
+      },
+      {
+          path: "discover/:pid",
+          element: <ProjectPage />
       },
       {
         path: "/manage",
