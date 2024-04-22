@@ -53,8 +53,6 @@ const QueryTool = ({resultSet, setResultSet}) => {
          return e;
       });
   
-      console.log(data);
-
       if (filterFundDesc){
         sortedProjects = [...data].sort((a,b)=>{
            return b.fundRatio-a.fundRatio;
@@ -66,7 +64,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
   useEffect(()=>{handleSubmit();},[]);
 
-  const handleReset = (e) => {
+  const handleReset = (e) => 
      setSearchQuery({     
          search: '',
          category: 'all',
