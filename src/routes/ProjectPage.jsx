@@ -12,6 +12,8 @@ const ProjectPage = () => {
   const [project, setProject] = useState(false);
   
   useEffect(()=>{
+     document.body.style.backgroundColor = '#d2d4d6';
+
      const getProject = async () => {
         const {data, error} = await database.from('projects').select().eq('pid',pid);
         
@@ -19,6 +21,10 @@ const ProjectPage = () => {
           setProject(data[0]);
      }
      getProject();
+    
+     return () => {
+      document.body.style.backgroundColor = '#27e690';
+     }
 
   },[]);
 

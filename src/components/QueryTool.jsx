@@ -57,6 +57,8 @@ const QueryTool = ({resultSet, setResultSet}) => {
          search: '',
          category: 'all',
       });
+      
+      handleSubmit();
   }
 
   return (
