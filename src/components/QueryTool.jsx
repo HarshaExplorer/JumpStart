@@ -64,7 +64,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
   useEffect(()=>{handleSubmit();},[]);
 
-  const handleReset = (e) => 
+  const handleReset = (e) => {
      setSearchQuery({     
          search: '',
          category: 'all',
