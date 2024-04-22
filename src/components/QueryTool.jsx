@@ -63,6 +63,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
   return (
     <>
+    <Stack direction='vertical'>
       <h3 className='kanit-bold mt-4 text-center'>Discover & Bring Projects to Life.</h3>
       <Stack direction='horizontal' className='p-3' gap={3}>
            
@@ -84,6 +85,8 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
       </Stack>
       <hr />
+      </Stack>
+
       <div className='d-flex flex-row-reverse'>
            <div className='p-3'>
               <Form.Check type="switch" onChange={handleFundFilter} label="Most Funded"/>

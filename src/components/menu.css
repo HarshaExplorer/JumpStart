@@ -18,6 +18,10 @@
   min-height: 300px;
 }
 
+.card-background{
+  background-color: red;
+}
+
 .kanit-bold {
   font-family: "Kanit", sans-serif;
   font-weight: 700;

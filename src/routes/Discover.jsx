@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-import QueryTool from '../components/QueryTool';
+import {Row, Col} from 'react-bootstrap'
+import QueryTool from '../components/QueryTool'
+import ProjectCard from '../components/ProjectCard'
 
 const Discover = () => {
   
@@ -8,6 +10,18 @@ const Discover = () => {
   return (
     <> 
        <QueryTool resultSet={resultSet} setResultSet={setResultSet}/>
+       
+       
+       <Row md={3} sm={2} className='g-4 p-2'>
+            {resultSet && resultSet.map((p)=>{
+              return(
+               <Col key={p.pid} md>
+                  <ProjectCard project={p} />
+               </Col>
+              );
+            })}
+       </Row>
+       
     </>
   )
 }
