@@ -8,7 +8,7 @@ import database from '../client';
 
 
 const ProjectPage = ({token}) => {
-  const {pid, user_id} = useParams();
+  const {pid, user_id, project_life} = useParams();
   const [project, setProject] = useState(false);
   const [backersCount, setBackersCount] = useState(0);
   const [backerFund, setBackerFund] = useState('');
@@ -73,18 +73,24 @@ const ProjectPage = ({token}) => {
                      <h3><Image src={Compass} width='25px'  height='25px'/> <span className='teko-category p-2'>{ project.category}</span></h3>
                      <h3>🏢 <span className='teko-category p-2'>{project.company}</span></h3>
                      <h3>📧 <span className='teko-category p-2'>{projectEmail}</span></h3>
+                     <h3>🕒 <span className='teko-category p-2 mb-1'><h2 style={{display:'inline'}}>{(project_life > 0 ? (`${project_life} day`+ (project_life==1?(''):('s')) + ' to go' ):('Project Closed'))}</h2></span></h3>
                      <h3>🤝 <span className='teko-category p-2'><h2 style={{display:'inline'}}>{backersCount.toLocaleString()} </h2>Backers</span></h3>
                      <h2 className='mt-2 money'>{`$${(project.amt_pledged).toLocaleString()} Pledged`} <h4 style={{display: 'inline', color:'black'}}>of {`$${project.amt_requested} goal.`}</h4></h2>
                      <p className='mt-2'>{project.text}</p>
                      
-                     <InputGroup className="m-2 mx-auto" style={{width:'80%'}}>
-                            <Button variant="success" className='backer-submit' onClick={handleBackerFund} disabled={token?(false):(true)}>
+                     {Number(project_life)>0 &&
+                       <InputGroup className="m-2 mx-auto" style={{width:'80%'}}>
+                            <Button variant="success" className='backer-submit' onClick={handleBackerFund} disabled={(token || Number(project_life)<=0)?(false):(true)}>
                                Back this project
                             </Button>
                             <Form.Control type="number" className='backer-input-shadow' value={backerFund} onChange={(e)=>{setBackerFund(e.target.value)}} placeholder={`Enter dollar amount ($${project.amt_requested-project.amt_pledged} max)`} disabled={token?(false):(true)} max={project.amt_requested-project.amt_pledged} />
                        </InputGroup>
+                     }
 
-                       {!token && <p className='mx-auto' style={{color: 'red'}}>*must be logged in to contribute funds</p>}
+                     {!token && Number(project_life)>0 && <p className='mx-auto' style={{color: 'red'}}>*must be logged in to contribute funds</p>}
+                       
+                      
+                      
                     
                 </Stack>
              </Stack>

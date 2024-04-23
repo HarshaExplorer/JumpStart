@@ -11,7 +11,7 @@ const ProjectCard = ({project, width=''}) => {
   const singleDay = (daysLeft===1)?(true):(false);
   
   const redirectProjectPage = () => {
-       navigate(`/discover/${project.pid}/${project.user_id}`);
+       navigate(`/discover/${project.pid}/${project.user_id}/${daysLeft}`);
   }
 //#78f0ba
   return (
