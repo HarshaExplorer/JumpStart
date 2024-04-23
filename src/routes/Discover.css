@@ -1,0 +1,19 @@
+.discover-page {
+  background-color: #272b33; /* Set the background color to #272b33 */
+  padding: 20px;
+}
+
+.project-card {
+  border: 1px solid rgba(255, 0, 0, 0.4); /* Adjust border color */
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.project-card-img {
+  height: 330px;
+  object-fit: cover;
+}

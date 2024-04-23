@@ -1,26 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 .mono-logo {
-    font-family: "Major Mono Display", monospace;
-    font-weight: 500;
-    font-size: larger;
-    font-style: normal;
+  font-family: "Major Mono Display", monospace;
+  font-weight: 500;
+  font-size: larger;
+  font-style: normal;
 }
 
-
-.bad-container{
+.bad-container {
   margin-top: 10%;
   min-width: 300px;
   max-width: 500px;
   min-height: 300px;
 }
 
-.filter-border{
-  background-color: #d7dade;
-  box-shadow: 3px 3px 3px #d7dade;
+.filter-border {
+  background-color: #000000;
+  box-shadow: 2px 2px 2px #000000;
+}
+
+.filter-border:hover {
+  box-shadow: 3px 3px 3px #000000;
 }
 
 .kanit-bold {
@@ -35,19 +37,19 @@
   font-style: normal;
 }
 
-.nlink-reset{
+.nlink-reset {
   text-decoration: none;
   color: inherit;
 }
 
-.nlink:hover{
+.nlink:hover {
   color: #277150;
 }
 
 .auth-link-reset {
   text-decoration: none;
 }
-.auth-link:hover{
+.auth-link:hover {
   color: #ffffff;
 }
 
@@ -55,3 +57,76 @@
   color: #27e690;
 }
 
+.card {
+  border: 1px solid rgba(50, 50, 50, 0.9);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #c9c9c9;
+}
+
+.card-text span {
+  font-weight: bold;
+}
+
+.progressBar {
+  height: 20px;
+  border-radius: 10px;
+}
+
+.button {
+  margin-top: 1rem;
+}
+
+.row {
+  margin-top: 2rem;
+}
+
+@media (max-width: 767px) {
+  .row {
+    margin-top: 1rem;
+  }
+}
+
+.project-card-img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.project-card {
+  border: 10px solid rgba(255, 255, 255, 0.9); /* Adjust border color */
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.query-tool-text {
+  color: white;
+}
