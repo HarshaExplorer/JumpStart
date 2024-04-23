@@ -55,13 +55,19 @@ const ProjectPage = ({token}) => {
         if(data)
           setProject(data[0]);
 
-        const backerData = await database.from('funds').select("backer_id", {distinct: 'true', count: 'exact', head: true}).eq('project_id', pid);
-        
-        if(backerData && backerData.count)
-           setBackersCount(backerData.count)
+        const backerData = await database.from('funds').select("backer_id", {distinct: 'true', count: 'exact'}).eq('project_id', pid);
+        if(backerData && backerData.data){
+
+           const UniqueBackers = new Set(
+                                    Array.prototype.map.call(backerData.data, (backer)=>{
+                                      return `${backer.backer_id}`;
+                                    }
+                                 ));
+
+           setBackersCount(UniqueBackers.size);
+        }
 
         const creatorEmail = await database.from('users').select().eq('id',user_id);
-        console.log(creatorEmail)
         if(creatorEmail && creatorEmail.data)
            setProjectEmail(creatorEmail.data[0].email);
      }
