@@ -75,8 +75,8 @@ const QueryTool = ({resultSet, setResultSet}) => {
 
   return (
     <>
-    <Stack direction='vertical'>
-      <h3 className='kanit-bold mt-4 text-center'>Discover & Bring Projects to Life.</h3>
+    <Stack direction='vertical' data-bs-theme='dark'>
+      <h3 className='kanit-bold mt-4 text-center' style={{color:'white'}}>Discover & Bring Projects to Life.</h3>
       <Stack direction='horizontal' className='p-3' gap={3}>
            
           <Form.Select className='w-50 filter-border' name="category" value={searchQuery.category} onChange={handleFilters}>
@@ -96,7 +96,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
           <Form.Control  className='me-auto filter-border' name="search" type='text' value={searchQuery.search} onChange={handleFilters} placeholder='Search projects and businesses' />
 
           <Button variant="outline-success" onClick={handleSubmit}>Submit</Button>
-          <div className="vr" />
+          <div className="vr"  style={{color:'white'}} />
           <Button variant="outline-danger" onClick={handleReset}>Reset</Button>
 
       </Stack>
@@ -109,7 +109,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
                                            setFundFilter(e.target.checked);
                                            handleFundFilter(e.target.checked);
                                         }}  
-              label="Most Funded"/>
+              label="Most Funded" style={{color: 'white'}} />
            </div>
       </div>
     </>

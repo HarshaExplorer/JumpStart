@@ -82,7 +82,7 @@ const ProjectPage = ({token}) => {
               <h1 className='abril-fatface-regular mt-3 mx-auto'>{project.title}</h1>
               <hr />
              <Stack direction='horizontal' gap={3}>
-                <Image className='mx-auto p-2' src={project.img_url} width='25%' height='25%' fluid rounded/>
+                <Image className='mx-auto p-2' src={project.img_url} width='25%' height='300px' fluid rounded/>
                 <Stack direction='vertical' className='mx-auto'>
                      <h3><Image src={Compass} width='25px'  height='25px'/> <span className='teko-category p-2'>{ project.category}</span></h3>
                      <h3>🏢 <span className='teko-category p-2'>{project.company}</span></h3>

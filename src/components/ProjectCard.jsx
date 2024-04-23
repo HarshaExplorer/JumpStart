@@ -16,8 +16,8 @@ const ProjectCard = ({project, width=''}) => {
 //#78f0ba
   return (
     <>
-      <Card  style={{ width: width, backgroundColor: 'inherit', borderColor: 'white'}}>
-         <Card.Img variant="top" style={{ height: "18rem"}} src={project.img_url} />
+      <Card  className='project-card'>
+         <Card.Img variant="top" className='project-card-img' src={project.img_url} />
          <Card.Body>
             <Card.Title>{project.title}</Card.Title>
             <Card.Text className='mb-2'>{project.company}</Card.Text>
