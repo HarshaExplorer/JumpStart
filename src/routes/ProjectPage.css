@@ -20,6 +20,20 @@
  color:  #036704;
 }
 
+.alert{
+  color: red;
+}
+
 .hr-separator{
   border-top: 3px dotted black;
+}
+
+.backer-input-shadow{
+  box-shadow: 3px 3px 3px #d7dade;
+}
+
+.backer-submit{
+  box-shadow: 2px 2px 1px #14A44D;
+  width: 50%;
+  display: inline-block;
 }
