@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import {useParams, useNavigate} from 'react-router-dom'
 import {Carousel, Card, Image} from 'react-bootstrap'
 import {Container, Row, Col} from 'react-bootstrap'
 import aboutHeader from '../assets/images/about-page-header-img.jpeg'
-import carouselImage1 from '../assets/images/carousel-img1.jpeg'
+import carouselImage1 from '../assets/images/carousel-img1.jpg'
+import carouselImage2 from '../assets/images/carousel-img2.jpg'
+import carouselImage3 from '../assets/images/carousel-img3.jpg'
 import './About.css'
+import database from '../client';
 
 const About = () => {
+  const navigate = useNavigate();
+  const {pid} = useParams();
+  const [project, setProject] = useState(false);
+  const [backersCount, setBackersCount] = useState(0);
+  const [totalFunded, setTotalFunded] = useState(0);
+
+  useEffect(()=>{
+
+    const getProject = async () => {
+      const numProjects = await database.from('projects').select('pid', {distinct: 'true', count: 'exact', head: true});
+    
+      if (numProjects && numProjects.count) {
+        setProject(numProjects.count);
+      }
+    }
+    getProject();
+  },[]);
+
   return (
     <Container>
       <Row className='mt-5'>
@@ -22,30 +44,30 @@ const About = () => {
         </Col>
       </Row>
       
-      <Row className='mt-5'>
+      <Row>
         <h1>Our Impact</h1>
       </Row>
       
       
       <Row className='mt-3'>
         <Col>
-          <Card>
+          <Card style={{borderRadius: '30px', overflow: 'hidden'}}>
             {/* adjust image size and colors manually to fix carousel */}
             <Carousel>
 
               <Carousel.Item>
-                <Image src={carouselImage1} height='500px' width='400px' alt="First slide" />
-                <Carousel.Caption style={{color: 'black'}}>
-                  <h3>Funding</h3>
-                  <p>First slide</p>
+                <Image src={carouselImage2} className='img-fluid' alt="First slide" />
+                <Carousel.Caption>
+                  <p className='carousel-title'>idk</p>
+                  <p className='carousel-subtitle'>Dollars Funded</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
               <Carousel.Item>
-                <Image src={carouselImage1} height='500px' width='400px' alt="Second slide" />
-                <Carousel.Caption style={{color: 'black'}}>
-                  <h3>Projects</h3>
-                  <p>Second slide</p>
+                <Image src={carouselImage1} className='img-fluid' alt="Second slide" />
+                <Carousel.Caption>
+                  <p className='carousel-title'>{project}</p>
+                  <p className='carousel-subtitle'>Projects Created</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -55,23 +77,21 @@ const About = () => {
         </Col>
 
         <Col>
-          <Card>
+          <Card style={{borderRadius: '30px', overflow: 'hidden'}}>
             {/* adjust image size and colors manually to fix carousel */}
             <Carousel className='carousel-style'>
 
               <Carousel.Item>
-                <Image src={carouselImage1} height='500px' width='400px' alt="First slide" />
-                <Carousel.Caption style={{color: 'black'}}>
-                  <h3>Funding</h3>
-                  <p>First slide</p>
+                <Image src={carouselImage1} className='img-fluid' alt="First slide" />
+                <Carousel.Caption>
+                  <p className='carousel-subtitle'>First slide</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
               <Carousel.Item>
-                <Image src={carouselImage1} height='500px' width='400px' alt="Second slide" />
-                <Carousel.Caption style={{color: 'black'}}>
-                  <h3>Projects</h3>
-                  <p>Second slide</p>
+                <Image src={carouselImage3} className='img-fluid' alt="Second slide" />
+                <Carousel.Caption>
+                  <p className='carousel-subtitle'>Second slide</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -81,23 +101,21 @@ const About = () => {
         </Col>
 
         <Col>
-          <Card>
+          <Card style={{borderRadius: '30px', overflow: 'hidden'}}>
             {/* adjust image size and colors manually to fix carousel */}
             <Carousel className='carousel-style'>
 
               <Carousel.Item>
-                <Image src={carouselImage1} height='500px' width='400px' alt="First slide" />
-                <Carousel.Caption style={{color: 'black'}}>
-                  <h3>Funding</h3>
-                  <p>First slide</p>
+                <Image src={carouselImage1} className='img-fluid' alt="First slide" />
+                <Carousel.Caption>
+                  <p className='carousel-subtitle'>First slide</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
               <Carousel.Item>
-                <Image src={carouselImage1} height='500px' width='400px' alt="Second slide" />
-                <Carousel.Caption style={{color: 'black'}}>
-                  <h3>Projects</h3>
-                  <p>Second slide</p>
+                <Image src={carouselImage1} className='img-fluid' alt="Second slide" />
+                <Carousel.Caption>
+                  <p className='carousel-subtitle'>Second slide</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -108,7 +126,7 @@ const About = () => {
       </Row>
 
       <Row className='mt-5'>
-        <h1>Meet our team</h1>
+        <h1>Meet the team</h1>
       </Row>
 
     </Container>

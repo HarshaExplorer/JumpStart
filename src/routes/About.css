@@ -4,6 +4,25 @@
     margin: 0 auto;
   }
 
+.carousel-title {
+  font-size: 125px;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 100%;
+}
+
+.carousel-subtitle {
+  font-size: 40px;
+  font-weight: 200;
+  border-radius: 100%;
+}
+
+.carousel-indicators [data-bs-target] {
+  border-radius: 20% !important;
+  height: 5px !important; 
+  width: 30px !important;
+}
+
   .image-container::after {
     content: "";
     display: block;
