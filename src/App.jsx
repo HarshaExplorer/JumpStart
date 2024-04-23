@@ -46,7 +46,7 @@ function App() {
         element: <Discover />
       },
       {
-          path: "discover/:pid",
+          path: "discover/:pid/:user_id",
           element: <ProjectPage token={token} />
       },
       {

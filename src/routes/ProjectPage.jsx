@@ -8,15 +8,17 @@ import database from '../client';
 
 
 const ProjectPage = ({token}) => {
-  const {pid} = useParams();
+  const {pid, user_id} = useParams();
   const [project, setProject] = useState(false);
   const [backersCount, setBackersCount] = useState(0);
   const [backerFund, setBackerFund] = useState('');
+  const [projectEmail, setProjectEmail] = useState('');
 
   const handleBackerFund = async () => {;
       if(backerFund <= 0 || backerFund > (project.amt_requested-project.amt_pledged))
          alert('Funds should be minimum $1 and cannot exceed $'+(project.amt_requested-project.amt_pledged).toLocaleString()+"!");
-      
+      else if(token.user.id===project.user_id)
+          alert('Cannot fund your own project!');
       else{
         const response = window.confirm("You are willing to fund $" + backerFund.toLocaleString() + "?");
         if (response){
@@ -49,6 +51,11 @@ const ProjectPage = ({token}) => {
         
         if(backerData && backerData.count)
            setBackersCount(backerData.count)
+
+        const creatorEmail = await database.from('users').select().eq('id',user_id);
+        console.log(creatorEmail)
+        if(creatorEmail && creatorEmail.data)
+           setProjectEmail(creatorEmail.data[0].email);
      }
 
      getProject();     
@@ -65,7 +72,7 @@ const ProjectPage = ({token}) => {
                 <Stack direction='vertical' className='mx-auto'>
                      <h3><Image src={Compass} width='25px'  height='25px'/> <span className='teko-category p-2'>{ project.category}</span></h3>
                      <h3>🏢 <span className='teko-category p-2'>{project.company}</span></h3>
-                     <h3>📧 <span className='teko-category p-2'>{token.user.email}</span></h3>
+                     <h3>📧 <span className='teko-category p-2'>{projectEmail}</span></h3>
                      <h3>🤝 <span className='teko-category p-2'><h2 style={{display:'inline'}}>{backersCount.toLocaleString()} </h2>Backers</span></h3>
                      <h2 className='mt-2 money'>{`$${(project.amt_pledged).toLocaleString()} Pledged`} <h4 style={{display: 'inline', color:'black'}}>of {`$${project.amt_requested} goal.`}</h4></h2>
                      <p className='mt-2'>{project.text}</p>
