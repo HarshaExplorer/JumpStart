@@ -84,7 +84,7 @@ const ProjectPage = ({token}) => {
                             <Form.Control type="number" className='backer-input-shadow' value={backerFund} onChange={(e)=>{setBackerFund(e.target.value)}} placeholder={`Enter dollar amount ($${project.amt_requested-project.amt_pledged} max)`} disabled={token?(false):(true)} max={project.amt_requested-project.amt_pledged} />
                        </InputGroup>
 
-                       {!token && <p className='mx-auto alert'>*must be logged in to contribute funds</p>}
+                       {!token && <p className='mx-auto' style={{color: 'red'}}>*must be logged in to contribute funds</p>}
                     
                 </Stack>
              </Stack>
