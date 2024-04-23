@@ -19,3 +19,7 @@
 .money {
  color:  #036704;
 }
+
+.hr-separator{
+  border-top: 3px dotted black;
+}
