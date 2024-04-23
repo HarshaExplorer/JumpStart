@@ -13,8 +13,9 @@ const About = () => {
   const navigate = useNavigate();
   const { pid } = useParams();
   const [project, setProject] = useState(false);
-  const [backersCount, setBackersCount] = useState(0);
+  const [usersCount, setUsersCount] = useState(0);
   const [totalFunded, setTotalFunded] = useState(0);
+  const [categories, setCategories] = useState(0);
 
   useEffect(() => {
     const getProject = async () => {
@@ -26,8 +27,81 @@ const About = () => {
         setProject(numProjects.count);
       }
     };
+
+    const getFunded = async () => {
+      try {
+        const { data, error } = await database
+          .from("projects")
+          .select("amt_pledged");
+
+        if (error) {
+          throw error;
+        }
+
+        const sum = data.reduce(
+          (acc, project) => acc + parseFloat(project.amt_pledged),
+          0
+        );
+        setTotalFunded(sum);
+      } catch (error) {
+        console.error("Error fetching total funded amount:", error.message);
+      }
+    };
+
+    const getBackers = async () => {
+      try {
+        const { data, error } = await database
+          .from("projects")
+          .select("user_id");
+
+        if (error) {
+          throw error;
+        }
+
+        // Extract all user_id values
+        const userIDs = data.map((project) => project.user_id);
+
+        // Calculate the count of unique user_id values
+        const uniqueBackers = new Set(userIDs).size;
+        setUsersCount(uniqueBackers);
+      } catch (error) {
+        console.error("Error fetching total number of backers:", error.message);
+      }
+    };
+
+    const getCategories = async () => {
+      try {
+        const { data, error } = await database
+          .from("projects")
+          .select("category");
+
+        if (error) {
+          throw error;
+        }
+
+        const categoriesCount = data.map((project) => project.category);
+        const uniqueCategories = new Set(categoriesCount).size;
+        setCategories(uniqueCategories);
+      } catch (error) {
+        console.error(
+          "Error fetching total number of categories:",
+          error.message
+        );
+      }
+    };
+
+    getCategories();
+    getBackers();
     getProject();
+    getFunded();
   }, []);
+
+  // Function to format number to display in millions
+  const formatToMillions = (number) => {
+    return (number / 1000000).toLocaleString(undefined, {
+      maximumFractionDigits: 2,
+    });
+  };
 
   return (
     <Container>
@@ -37,7 +111,7 @@ const About = () => {
           <p className="mt-3">
             At JumpStart, our goals have always been to provide a platform which
             can help you bring your projects to life. By implementing smart
-            search capabilites and features that help users fund projects,
+            search capabilities and features that help users fund projects,
             anyone can jumpstart their ambitions today.
           </p>
         </Col>
@@ -64,8 +138,15 @@ const About = () => {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <p className="carousel-title">idk</p>
-                  <p className="carousel-subtitle">Dollars Funded</p>
+                  <p
+                    className="carousel-title-secondary"
+                    style={{ fontWeight: "900" }}
+                  >
+                    {formatToMillions(totalFunded)}
+                  </p>
+                  <p className="carousel-subtitle-secondary">
+                    Million Dollars Funded
+                  </p>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -95,7 +176,13 @@ const About = () => {
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <p className="carousel-subtitle">First slide</p>
+                  <p className="carousel-title">{usersCount}</p>
+                  <p
+                    className="carousel-subtitle"
+                    style={{ fontWeight: "300" }}
+                  >
+                    Users published Projects
+                  </p>
                 </Carousel.Caption>
               </Carousel.Item>
 
@@ -106,7 +193,10 @@ const About = () => {
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  <p className="carousel-subtitle">Second slide</p>
+                  <p className="carousel-title">{categories}</p>
+                  <p className="carousel-subtitle-secondary">
+                    Different Market Segments
+                  </p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
