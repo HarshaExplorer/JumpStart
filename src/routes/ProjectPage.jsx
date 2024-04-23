@@ -19,13 +19,14 @@ const ProjectPage = ({token}) => {
       const UserFund = await database.from('funds').select().eq('project_id', pid).eq('backer_id', token.user.id);
       console.log(UserFund);
 
-      if(backerFund <= 0 || backerFund > (project.amt_requested-project.amt_pledged))
-         alert('Funds should be minimum $1 and cannot exceed $'+(project.amt_requested-project.amt_pledged).toLocaleString()+"!");
+      if(Number(project.amt_pledged) >= Number(project.amt_requested))
+         alert("This project's funding goals has been achieved! So, further funds for this project are not accepted.")
       else if(token.user.id===project.user_id)
-          alert('Cannot fund your own project!');
-      else if(UserFund.data.length > 0){
-          alert('Cannot pledge to the same project more than once!');
-      }
+         alert('Cannot fund your own project!');
+      else if(UserFund.data.length > 0)
+         alert('Cannot pledge to the same project more than once!'); 
+      else if(backerFund <= 0 || backerFund > (project.amt_requested-project.amt_pledged))
+         alert('Funds should be minimum $1 and cannot exceed $'+(project.amt_requested-project.amt_pledged).toLocaleString()+"!");
       else{
         const response = window.confirm("You are willing to fund $" + backerFund.toLocaleString() + "?");
         if (response){
@@ -81,7 +82,7 @@ const ProjectPage = ({token}) => {
                      <h3>🏢 <span className='teko-category p-2'>{project.company}</span></h3>
                      <h3>📧 <span className='teko-category p-2'>{projectEmail}</span></h3>
                      <h3>🕒 <span className='teko-category p-2 mb-1'><h2 style={{display:'inline'}}>{(project_life > 0 ? (`${project_life} day`+ (project_life==1?(''):('s')) + ' to go' ):('Project Closed'))}</h2></span></h3>
-                     <h3>🤝 <span className='teko-category p-2'><h2 style={{display:'inline'}}>{backersCount.toLocaleString()} </h2>Backer{(Number(backersCount)>1)?('s'):('')}</span></h3>
+                     <h3>🤝 <span className='teko-category p-2'><h2 style={{display:'inline'}}>{backersCount.toLocaleString()} </h2>Backer{(Number(backersCount)!==1)?('s'):('')}</span></h3>
                      <h2 className='mt-2 money'>{`$${(project.amt_pledged).toLocaleString()} Pledged`} <h4 style={{display: 'inline', color:'black'}}>of {`$${project.amt_requested} goal.`}</h4></h2>
                      <p className='mt-2'>{project.text}</p>
                      
