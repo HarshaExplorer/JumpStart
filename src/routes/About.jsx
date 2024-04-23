@@ -1,5 +1,5 @@
 import React from 'react'
-import {Carousel, Card, Button, Image} from 'react-bootstrap'
+import {Carousel, Card, Image} from 'react-bootstrap'
 import {Container, Row, Col} from 'react-bootstrap'
 import aboutHeader from '../assets/images/about-page-header-img.jpeg'
 import carouselImage1 from '../assets/images/carousel-img1.jpeg'
@@ -10,8 +10,8 @@ const About = () => {
     <Container>
       <Row className='mt-5'>
         <Col>
-        <h1>About</h1>
-        <p className='mt-5'>At JumpStart, our goals have always been to provide a platform which can help you bring your projects to life.
+        <h1>What do we do?</h1>
+        <p className='mt-3'>At JumpStart, our goals have always been to provide a platform which can help you bring your projects to life.
           By implementing smart search capabilites and features that help users fund projects, anyone can jumpstart their ambitions today.
         </p>
         </Col>
@@ -34,7 +34,7 @@ const About = () => {
             <Carousel>
 
               <Carousel.Item>
-                <Image src={carouselImage1} alt="First slide" />
+                <Image src={carouselImage1} height='500px' width='400px' alt="First slide" />
                 <Carousel.Caption style={{color: 'black'}}>
                   <h3>Funding</h3>
                   <p>First slide</p>
@@ -42,7 +42,7 @@ const About = () => {
               </Carousel.Item>
 
               <Carousel.Item>
-                <Image src={carouselImage1} alt="Second slide" />
+                <Image src={carouselImage1} height='500px' width='400px' alt="Second slide" />
                 <Carousel.Caption style={{color: 'black'}}>
                   <h3>Projects</h3>
                   <p>Second slide</p>
@@ -57,10 +57,10 @@ const About = () => {
         <Col>
           <Card>
             {/* adjust image size and colors manually to fix carousel */}
-            <Carousel>
+            <Carousel className='carousel-style'>
 
               <Carousel.Item>
-                <Image src={carouselImage1} alt="First slide" />
+                <Image src={carouselImage1} height='500px' width='400px' alt="First slide" />
                 <Carousel.Caption style={{color: 'black'}}>
                   <h3>Funding</h3>
                   <p>First slide</p>
@@ -68,7 +68,7 @@ const About = () => {
               </Carousel.Item>
 
               <Carousel.Item>
-                <Image src={carouselImage1} alt="Second slide" />
+                <Image src={carouselImage1} height='500px' width='400px' alt="Second slide" />
                 <Carousel.Caption style={{color: 'black'}}>
                   <h3>Projects</h3>
                   <p>Second slide</p>
@@ -81,7 +81,34 @@ const About = () => {
         </Col>
 
         <Col>
+          <Card>
+            {/* adjust image size and colors manually to fix carousel */}
+            <Carousel className='carousel-style'>
+
+              <Carousel.Item>
+                <Image src={carouselImage1} height='500px' width='400px' alt="First slide" />
+                <Carousel.Caption style={{color: 'black'}}>
+                  <h3>Funding</h3>
+                  <p>First slide</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+
+              <Carousel.Item>
+                <Image src={carouselImage1} height='500px' width='400px' alt="Second slide" />
+                <Carousel.Caption style={{color: 'black'}}>
+                  <h3>Projects</h3>
+                  <p>Second slide</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+
+
+            </Carousel>
+          </Card>
         </Col>
+      </Row>
+
+      <Row className='mt-5'>
+        <h1>Meet our team</h1>
       </Row>
 
     </Container>
