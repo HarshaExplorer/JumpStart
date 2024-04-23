@@ -10,7 +10,7 @@ const ResetPassword = () => {
     
     useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
        return () => {
-        document.body.style.backgroundColor = 'white'
+        document.body.style.backgroundColor = '#272b33'
        }
      },[]);
     const [formData, setFormData] = useState({
