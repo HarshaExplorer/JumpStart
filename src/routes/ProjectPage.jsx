@@ -14,7 +14,6 @@ const ProjectPage = () => {
   const [backersCount, setBackersCount] = useState(0);
 
   useEffect(()=>{
-     document.body.style.backgroundColor = '#d2d4d6';
 
      const getProject = async () => {
         const {data, error} = await database.from('projects').select().eq('pid',pid);
@@ -30,10 +29,6 @@ const ProjectPage = () => {
      }
      getProject();
      
-     return () => {
-      document.body.style.backgroundColor = '#27e690';
-     }
-
   },[]);
 
   return (

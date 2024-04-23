@@ -79,7 +79,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
       <h3 className='kanit-bold mt-4 text-center'>Discover & Bring Projects to Life.</h3>
       <Stack direction='horizontal' className='p-3' gap={3}>
            
-          <Form.Select className='w-50' name="category" value={searchQuery.category} onChange={handleFilters}>
+          <Form.Select className='w-50 filter-border' name="category" value={searchQuery.category} onChange={handleFilters}>
               <option value="all">Select Category</option>
               <option value="Art">Art & Crafts</option>
               <option value="Books">Books</option>
@@ -89,7 +89,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
               <option value="Film">Films</option>
           </Form.Select>
           
-          <Form.Control  className='me-auto' name="search" type='text' value={searchQuery.search} onChange={handleFilters} placeholder='Search projects and businesses' />
+          <Form.Control  className='me-auto filter-border' name="search" type='text' value={searchQuery.search} onChange={handleFilters} placeholder='Search projects and businesses' />
 
           <Button variant="outline-success" onClick={handleSubmit}>Submit</Button>
           <div className="vr" />

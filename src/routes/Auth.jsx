@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import database from '../client.js'
@@ -7,6 +7,13 @@ import './Auth.css'
 
 const Auth = ({setToken}) => {
   const navigate = useNavigate();
+
+  useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
+    return () => {
+      document.body.style.backgroundColor = 'white'
+    }
+  },[]);
+
 
   const updatedb = async (data) => {
    const userin = await database.from('users').select().eq('id',`${data.user.id}`);

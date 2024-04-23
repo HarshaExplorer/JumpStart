@@ -18,8 +18,9 @@
   min-height: 300px;
 }
 
-.card-background{
-  background-color: red;
+.filter-border{
+  background-color: #d7dade;
+  box-shadow: 3px 3px 3px #d7dade;
 }
 
 .kanit-bold {
