@@ -76,13 +76,13 @@ const QueryTool = ({ resultSet, setResultSet }) => {
 
   return (
     <>
-      <Stack direction="vertical">
-        <h3 className="kanit-bold mt-4 text-center query-tool-text">
+      <Stack direction="vertical" data-bs-theme="dark">
+        <h3 className="kanit-bold mt-4 text-center" style={{ color: "white" }}>
           Discover & Bring Projects to Life.
         </h3>
         <Stack direction="horizontal" className="p-3" gap={3}>
           <Form.Select
-            className="w-50 filter-border query-tool-text"
+            className="w-50 filter-border"
             name="category"
             value={searchQuery.category}
             onChange={handleFilters}
@@ -94,10 +94,13 @@ const QueryTool = ({ resultSet, setResultSet }) => {
             <option value="Fashion">Fashion</option>
             <option value="Food">Food</option>
             <option value="Film">Films</option>
+            <option value="Life">Life Style</option>
+            <option value="Env">Nature & Environment</option>
+            <option value="Tech">Technology</option>
           </Form.Select>
 
           <Form.Control
-            className="me-auto filter-border query-tool-text"
+            className="me-auto filter-border"
             name="search"
             type="text"
             value={searchQuery.search}
@@ -105,23 +108,15 @@ const QueryTool = ({ resultSet, setResultSet }) => {
             placeholder="Search projects and businesses"
           />
 
-          <Button
-            variant="outline-success"
-            onClick={handleSubmit}
-            className="query-tool-text"
-          >
+          <Button variant="outline-success" onClick={handleSubmit}>
             Submit
           </Button>
-          <div className="vr" />
-          <Button
-            variant="outline-danger"
-            onClick={handleReset}
-            className="query-tool-text"
-          >
+          <div className="vr" style={{ color: "white" }} />
+          <Button variant="outline-danger" onClick={handleReset}>
             Reset
           </Button>
         </Stack>
-        <hr className="query-tool-text" />
+        <hr />
       </Stack>
 
       <div className="d-flex flex-row-reverse">
@@ -133,7 +128,7 @@ const QueryTool = ({ resultSet, setResultSet }) => {
               handleFundFilter(e.target.checked);
             }}
             label="Most Funded"
-            className="query-tool-text"
+            style={{ color: "white" }}
           />
         </div>
       </div>

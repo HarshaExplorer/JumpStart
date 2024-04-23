@@ -17,12 +17,11 @@
 }
 
 .filter-border {
-  background-color: #000000;
-  box-shadow: 2px 2px 2px #000000;
+  box-shadow: 2px 2px 2px #222222;
 }
 
 .filter-border:hover {
-  box-shadow: 3px 3px 3px #000000;
+  box-shadow: 3px 3px 3px #131313;
 }
 
 .kanit-bold {
@@ -112,14 +111,18 @@
 }
 
 .project-card-img {
-  height: 150px;
+  height: 300px;
   object-fit: cover;
 }
 
+.project-card:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
 .project-card {
-  border: 10px solid rgba(255, 255, 255, 0.9); /* Adjust border color */
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
   border-radius: 10px;
+  background-color: "inherit";
+  border-color: "white";
   transition: all 0.3s ease;
 }
 
@@ -129,4 +132,9 @@
 
 .query-tool-text {
   color: white;
+}
+
+.discover-page {
+  background-color: #272b33;
+  padding: 20px;
 }
