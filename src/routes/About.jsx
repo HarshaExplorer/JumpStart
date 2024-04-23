@@ -107,8 +107,8 @@ const About = () => {
     <Container>
       <Row className="mt-5">
         <Col>
-          <h1>What do we do?</h1>
-          <p className="mt-3">
+          <h1 style={{ fontWeight: "bolder" }}>What do we do?</h1>
+          <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>
             At JumpStart, our goals have always been to provide a platform which
             can help you bring your projects to life. By implementing smart
             search capabilities and features that help users fund projects,
