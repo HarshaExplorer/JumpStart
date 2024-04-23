@@ -88,7 +88,9 @@ const QueryTool = ({resultSet, setResultSet}) => {
               <option value="Food">Food</option>
               <option value="Film">Films</option>
               <option value="Life">Life Style</option>
+              <option value="Env">Nature & Environment</option>
               <option value="Tech">Technology</option>
+  
           </Form.Select>
           
           <Form.Control  className='me-auto filter-border' name="search" type='text' value={searchQuery.search} onChange={handleFilters} placeholder='Search projects and businesses' />
