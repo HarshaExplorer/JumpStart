@@ -3,7 +3,7 @@ import {Button, Form, Stack} from 'react-bootstrap'
 import database from '../client';
 import './menu.css'
 
-const QueryTool = ({resultSet, setResultSet}) => { 
+const QueryTool = ({resultSet, setResultSet, manage=false}) => { 
   
   const [searchQuery, setSearchQuery] = useState({
       search: '',
@@ -38,6 +38,9 @@ const QueryTool = ({resultSet, setResultSet}) => {
       let sortedProjects = false;
       let query  =  database.from('projects').select();
 
+      if(manage)
+        query = query.eq('user_id', manage.user);
+      
       if(searchQuery.category !== 'all')
         query = query.eq('category', `${searchQuery.category}`);
       
@@ -76,7 +79,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
   return (
     <>
     <Stack direction='vertical' data-bs-theme='dark'>
-      <h3 className='kanit-bold mt-4 text-center' style={{color:'white'}}>Discover & Bring Projects to Life.</h3>
+      <h3 className={`kanit-bold ${(manage)?(manage.headerMarginTop):('mt-4')} text-center`} style={{color:'white'}}>{(manage)?(manage.header):('Discover & Bring Projects to Life.')}</h3>
       <Stack direction='horizontal' className='p-3' gap={3}>
            
           <Form.Select className='w-50 filter-border' name="category" value={searchQuery.category} onChange={handleFilters}>
