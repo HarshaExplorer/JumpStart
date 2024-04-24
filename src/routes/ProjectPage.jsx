@@ -75,6 +75,15 @@ const ProjectPage = ({token}) => {
      getProject();     
   },[]);
 
+  useEffect(()=>{
+      document.body.style.backgroundColor = '#ebe9e6';
+
+      return () => {
+         document.body.style.backgroundColor = '#272b33';
+      }
+
+  },[]);
+
   return (
     <>
       {project && 
