@@ -48,7 +48,7 @@ const Register = () => {
 
   useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
     return () => {
-    document.body.style.backgroundColor = '#272b33'
+    document.body.style.backgroundColor = '#272b33';
    }
   },[]);
 
