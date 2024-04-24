@@ -12,7 +12,7 @@ const Discover = () => {
     <div className='discover-page' data-bs-theme='dark'>
        <QueryTool resultSet={resultSet} setResultSet={setResultSet} />
        
-       <Row md={3} sm={2} lg={4} className='g-4 p-2'>
+       <Row md={3} sm={2} lg={4}  className='g-4 p-2'>
             {resultSet && resultSet.map((p)=>{
               return(
                <Col key={p.pid} md>
