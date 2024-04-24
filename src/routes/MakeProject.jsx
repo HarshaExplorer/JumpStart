@@ -7,7 +7,7 @@ const MakeProject = ({token}) => {
         return (
           <Navigate to='/authenticate' replace/>
         )
-      }
+    }
 
   return (
     <div>MakeProject</div>

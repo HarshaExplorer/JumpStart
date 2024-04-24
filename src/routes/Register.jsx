@@ -81,7 +81,7 @@ const Register = () => {
          </Form.Group>
    
          <Button className="btn-success" type="submit">
-            Sign In
+            Create Account
          </Button>
        </Form>
     </div>
