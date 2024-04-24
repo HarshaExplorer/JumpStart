@@ -26,8 +26,8 @@ const Home = ({ token, setToken }) => {
         </h1>
         <motion.h2
           className="landing-h2 sanchez-regular"
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ y: 110, opacity: 0, scale: 1 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
         >
           At JumpStart, we're more than a platform – we're a launchpad for

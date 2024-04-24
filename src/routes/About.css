@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.text-color {
+  color: white;
+}
+
 .carousel-title {
   font-size: 125px;
   text-align: center;

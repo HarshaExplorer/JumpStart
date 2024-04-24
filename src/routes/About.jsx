@@ -8,8 +8,10 @@ import carouselImage2 from "../assets/carousel-img2.jpg";
 import carouselImage3 from "../assets/carousel-img3.jpg";
 import "./About.css";
 import database from "../client";
+import { motion } from "framer-motion";
 
 const About = () => {
+  document.body.style.backgroundColor = "#272b33";
   const navigate = useNavigate();
   const { pid } = useParams();
   const [project, setProject] = useState(false);
@@ -107,13 +109,30 @@ const About = () => {
     <Container>
       <Row className="mt-5">
         <Col>
-          <h1>What do we do?</h1>
-          <p className="mt-3">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.3 }}
+            className="text-color"
+            style={{ fontSize: "80px", fontWeight: "999" }}
+          >
+            What do we do?
+          </motion.h1>
+          <motion.p
+            initial={{ y: -100, opacity: 0, scale: 0.9 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.4 }}
+            className="mt-3 text-color"
+            style={{ fontSize: "27x", lineHeight: "2.2" }}
+          >
             At JumpStart, our goals have always been to provide a platform which
             can help you bring your projects to life. By implementing smart
             search capabilities and features that help users fund projects,
-            anyone can jumpstart their ambitions today.
-          </p>
+            anyone can jumpstart their ambitions today. This platform operates
+            on a public funding model, much like Kickstarter, where creators can
+            showcase their projects and individuals can pledge funds to support
+            them.
+          </motion.p>
         </Col>
         <Col className="d-flex justify-content-center">
           <div className="image-container">
@@ -123,7 +142,14 @@ const About = () => {
       </Row>
 
       <Row>
-        <h1>Our Impact</h1>
+        <motion.h1
+          initial={{ y: 110, opacity: 0, scale: 1 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="text-color"
+        >
+          Our Impact
+        </motion.h1>
       </Row>
 
       <Row className="mt-3">
