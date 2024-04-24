@@ -19,7 +19,7 @@ const MakeProject = ({token}) => {
         company: ''
     });
 
-    const updateProject = (e) => { setFormData({...formData, [e.target.name]:e.target.value}); console.log(formData)}
+    const updateProject = (e) => { setFormData({...formData, [e.target.name]:e.target.value});}
 
     const validateProject = async() => {
       const textLength = formData.text.split(" ").filter((s)=>{return (s.trim()!=='')}).length;

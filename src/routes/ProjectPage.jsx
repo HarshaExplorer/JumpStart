@@ -17,7 +17,6 @@ const ProjectPage = ({token}) => {
   const handleBackerFund = async () => {;
 
       const UserFund = await database.from('funds').select().eq('project_id', pid).eq('backer_id', token.user.id);
-      console.log(UserFund);
 
       if(Number(project.amt_pledged) >= Number(project.amt_requested))
          alert("This project's funding goals has been achieved! So, further funds for this project are not accepted.")
