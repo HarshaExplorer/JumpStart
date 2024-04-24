@@ -100,7 +100,7 @@ const QueryTool = ({resultSet, setResultSet}) => {
           <Button variant="outline-danger" onClick={handleReset}>Reset</Button>
 
       </Stack>
-      <hr />
+      <hr style={{borderColor: 'white'}}/>
       </Stack>
 
       <div className='d-flex flex-row-reverse'>
