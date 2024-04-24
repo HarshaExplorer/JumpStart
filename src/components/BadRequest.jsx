@@ -7,7 +7,7 @@ const BadRequest = () => {
   useEffect(() => {
     document.body.style.backgroundColor = "#de4c35";
     return () => {
-       document.body.style.backgroundColor = "white";
+       document.body.style.backgroundColor = "#272b33";
     }
   }, [])
 

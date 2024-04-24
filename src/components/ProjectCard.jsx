@@ -1,19 +1,24 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import {Card, Col, Row, Button, ProgressBar } from 'react-bootstrap'
+import {Card, ButtonGroup, Button, ProgressBar } from 'react-bootstrap'
 import './menu.css'
 
-const ProjectCard = ({project, width=''}) => {
+const ProjectCard = ({project, manage=false}) => {
   
   const navigate = useNavigate();  
   const today = new Date();
   const daysLeft = Math.round((Date.parse(project.deadline) - today) / (1000*60*60*24)) + 1;
   const singleDay = (daysLeft===1)?(true):(false);
   
-  const redirectProjectPage = () => {
-       navigate(`/discover/${project.pid}/${project.user_id}/${daysLeft}`);
+  const redirectProjectPage = (e) => {
+      if (e.target.name === 'view')
+          navigate(`/discover/${project.pid}/${project.user_id}/${daysLeft}`);
+      else if (e.target.name === 'edit')
+          navigate(`/manage/edit/${project.pid}`);
+      else if (e.target.name === 'funds')
+          navigate(`/manage/funds/${project.pid}`);
   }
-//#78f0ba
+
   return (
     <>
       <Card  className='project-card'>
@@ -26,7 +31,15 @@ const ProjectCard = ({project, width=''}) => {
                 {`${project.fundRatio}% funded`}
             </Card.Text>
             <ProgressBar className='mb-2' variant={'success'} now={project.fundRatio} />
-            <Button variant="primary" onClick={redirectProjectPage}>View</Button>
+            <ButtonGroup>
+            <Button variant={(manage)?("outline-danger"):("primary")} name="view" onClick={redirectProjectPage}>View</Button>
+                  {manage &&
+                     <>
+                       <Button  variant="outline-danger" name="edit" onClick={redirectProjectPage}>Edit</Button>
+                       <Button  variant="outline-danger" name="funds" onClick={redirectProjectPage}>Track Funds</Button>
+                     </>        
+                  }
+            </ButtonGroup>
          </Card.Body>
       </Card>
     </>

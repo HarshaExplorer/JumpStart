@@ -24,11 +24,11 @@ const Manage = ({token}) => {
                 <h3 className='kanit-bold text-center' style={{color:'white'}}>Welcome{(token.user.identities[0].identity_data.fullname)?(', '+token.user.identities[0].identity_data.fullname):('')}!</h3>
 
                 <QueryTool resultSet={resultSet} setResultSet={setResultSet} manage={manage}/>
-                <Row md={3} sm={2} lg={4}  className='g-4 p-2'>
+                <Row md={4} sm={2} className='g-4 p-2'>
                      {resultSet && resultSet.map((p)=>{
                        return(
                         <Col key={p.pid} md>
-                           <ProjectCard project={p} />
+                           <ProjectCard project={p} manage={true}/>
                         </Col>
                        );
                      })}
