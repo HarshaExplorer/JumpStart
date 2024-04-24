@@ -53,12 +53,12 @@ function App() {
           element: <ProjectPage token={token} />
       },
       {
-        path: "/manage",
-        element: <Manage token={token} />
-      },
-      {
         path: "/manage/edit/:pid",
         element: <EditProject token={token} />
+      },
+      {
+        path: "/manage",
+        element: <Manage token={token} />
       },
       {
         path: "/manage/funds/:pid",
