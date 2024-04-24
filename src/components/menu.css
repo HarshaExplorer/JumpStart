@@ -17,8 +17,7 @@
 }
 
 .filter-border {
-  background-color: white;
-  box-shadow: 2px 2px 2px white;
+  box-shadow: 1px 1px 1px white;
 }
 
 .filter-border:hover {

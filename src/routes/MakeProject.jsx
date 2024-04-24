@@ -26,9 +26,9 @@ const MakeProject = ({token}) => {
              <option value="Fashion">Fashion</option>
              <option value="Food">Food</option>
              <option value="Film">Films</option>
-             <option value="Life">Life Style</option>
-             <option value="Env">Nature & Environment</option>
-             <option value="Tech">Technology</option>
+             <option value="Life Style">Life Style</option>
+             <option value="Nature & Environment">Nature & Environment</option>
+             <option value="Technology">Technology</option>
           </Form.Select>
       
           <h4 className='help-text bebas-neue-regular'><span className='logo-color'>Step 2</span> - A Catchy title: </h4>
