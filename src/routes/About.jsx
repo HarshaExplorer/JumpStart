@@ -201,7 +201,7 @@ const About = () => {
                   <p
                     className="carousel-subtitle-secondary"
                   >
-                    User Published Projects
+                    Users Published Projects
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
