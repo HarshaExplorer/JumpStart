@@ -17,11 +17,12 @@
 }
 
 .filter-border {
-  box-shadow: 2px 2px 2px #222222;
+  background-color: white;
+  box-shadow: 2px 2px 2px white;
 }
 
 .filter-border:hover {
-  box-shadow: 5px 5px 5px #1d1d1d;
+  box-shadow: 3px 3px 3px #000000;
 }
 
 .kanit-bold {
@@ -115,14 +116,15 @@
   object-fit: cover;
 }
 
+
 .project-card:hover {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
 .project-card {
   border-radius: 10px;
-  background-color: "inherit";
-  border-color: "white";
+  background-color: 'inherit';
+  border-color: 'white';
   transition: all 0.3s ease;
 }
 
@@ -134,7 +136,7 @@
   color: white;
 }
 
-.discover-page {
+.discover-page{
   background-color: #272b33;
   padding: 20px;
 }

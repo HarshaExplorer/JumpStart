@@ -3,15 +3,17 @@ import { Navigate } from 'react-router-dom'
 
 const Manage = ({token}) => {
 
-  if(token){
+  if(!token){
     return (
-      <>
-         <div>Manage</div>
-      </>
+      <Navigate to='/authenticate' replace/>
     )
   }
 
-  return <Navigate to='/authenticate' replace/>;
+  return (
+          <>
+            
+          </>
+         )
 }
 
 export default Manage;
