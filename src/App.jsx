@@ -12,6 +12,7 @@ import ResetPassword from './routes/ResetPassword';
 import Logout from './routes/Logout';
 import BadRequest from './components/BadRequest'
 import ProjectPage from './routes/ProjectPage'
+import MakeProject from './routes/MakeProject';
 
 function App() {
 
@@ -52,6 +53,10 @@ function App() {
       {
         path: "/manage",
         element: <Manage token={token} />
+      },
+      {
+        path: "/start-project",
+        element: <MakeProject token={token} />
       },
       {
         path: "/register",

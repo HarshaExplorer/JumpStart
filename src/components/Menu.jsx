@@ -14,6 +14,7 @@ const Menu = ({token}) => {
                <Nav.Link > <Link to="/about" className="nlink-reset px-2"> <span className="sanchez-regular nlink">About</span> </Link></Nav.Link>
                <Nav.Link > <Link to="/discover" className="nlink-reset px-2"> <span className="sanchez-regular nlink">Discover</span> </Link></Nav.Link>
                {token && <Nav.Link > <Link to="/manage" className="nlink-reset px-2"> <span className="sanchez-regular nlink">Manage</span> </Link></Nav.Link>}
+               {token && <Nav.Link > <Link to="/start-project" className="nlink-reset px-2"> <span className="sanchez-regular nlink">Start a Project</span> </Link></Nav.Link>}
              </Nav>
 
              <Nav className=" ml-auto justity-content-center">
