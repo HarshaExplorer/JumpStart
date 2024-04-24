@@ -114,6 +114,7 @@ const About = () => {
     getProject();
     getFunded();
     getTotalCompanies();
+    document.body.style.backgroundColor = '#272B33'
   }, []);
 
   // Function to format number to display in millions
@@ -127,8 +128,8 @@ const About = () => {
     <Container>
       <Row className="mt-5">
         <Col>
-          <h1 style={{ fontWeight: "bolder" }}>What do we do?</h1>
-          <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>
+          <h1 style={{ color: 'white', fontWeight: "bolder" }}>What do we do?</h1>
+          <p className="mt-3" style={{ color: 'white', fontWeight: "400", fontSize: "25px" }}>
             At JumpStart, our goals have always been to provide a platform which
             can help you bring your projects to life. By implementing smart
             search capabilities and features that help users fund projects,
@@ -136,14 +137,14 @@ const About = () => {
           </p>
         </Col>
         <Col className="d-flex justify-content-center">
-          <div className="image-container">
+          <Card style={{width: '25rem', borderRadius: "30px", overflow: "hidden"}}>
             <Image src={aboutHeader} fluid />
-          </div>
+          </Card>
         </Col>
       </Row>
 
       <Row>
-        <h1>Why join us?</h1>
+        <h1 style={{color: 'white'}}>Why join us?</h1>
       </Row>
 
       <Row className="mt-3">
@@ -254,9 +255,60 @@ const About = () => {
         </Col>
       </Row>
 
+
       <Row className="mt-5">
-        <h1>Let's get started!</h1>
-        <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>Work in progress!</p>
+        <h1 style={{color: 'white'}}>Let's get started!</h1>
+          <Card className="mt-3" style={{ borderRadius: "30px", overflow: "hidden" }}>
+              <Row>
+              <Col>
+                <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>Create an account</p>
+              </Col>
+              <Col>
+              <p className="mt-3" style={{ fontSize: "150%" }}>Go to <bold><span style={{color: 'darkgreen', fontWeight: "800"}}>Sign Up</span></bold> to create an account and log in. This is required to fund and create projects.</p>
+              </Col>
+              </Row>
+            </Card>
+
+          <Card className="mt-3" style={{ borderRadius: "30px", overflow: "hidden" }}>
+            <Row>
+            <Col>
+              <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>How to fund projects?</p>
+            </Col>
+            <Col>
+            <p className="mt-3" style={{ fontSize: "150%" }}>Go to <bold><span style={{color: 'darkgreen', fontWeight: "800"}}>Discover</span></bold> to browse through all user projects. Click a project that interests you and enter the amount to fund.</p>
+            </Col>
+            </Row>
+          </Card>
+          <Card className="mt-3" style={{ borderRadius: "30px", overflow: "hidden" }}>
+            <Row>
+            <Col>
+              <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>How to create a project?</p>
+            </Col>
+            <Col>
+            <p className="mt-3" style={{ fontWeight: "300", fontSize: "150%" }}>Go to <bold><span style={{color: 'darkgreen', fontWeight: "800"}}>Start Project</span></bold> and fill in the form with your project details. Once done, click 'JumpStart your project'!</p>
+            </Col>
+            </Row>
+          </Card>
+          <Card className="mt-3" style={{ borderRadius: "30px", overflow: "hidden" }}>
+            <Row>
+            <Col>
+              <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>How to edit your project?</p>
+            </Col>
+            <Col>
+            <p className="mt-3" style={{ fontWeight: "300", fontSize: "150%" }}>Go to <bold><span style={{color: 'darkgreen', fontWeight: "800"}}>Manage</span></bold> to browse through your projects and click 'Edit' on the one you want to make changes.</p>
+            </Col>
+            </Row>
+          </Card>
+          <Card className="mt-3" style={{ borderRadius: "30px", overflow: "hidden" }}>
+            <Row>
+            <Col>
+              <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>How to track funds for your project?</p>
+            </Col>
+            <Col>
+            <p className="mt-3" style={{ fontWeight: "300", fontSize: "150%" }}>Go to <bold><span style={{color: 'darkgreen', fontWeight: "800"}}>Manage</span></bold> to browse through all user projects and click 'Track Funds'.</p>
+            </Col>
+            </Row>
+          </Card>
       </Row>
     </Container>
   );
