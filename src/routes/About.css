@@ -3,36 +3,22 @@
   width: 75%;
   margin: 0 auto;
 }
-
+.carousel-title-small {
+  font-size: 450%;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 100%;
+}
 .carousel-title {
-  font-size: 125px;
+  font-size: 750%;
   text-align: center;
   font-weight: 900;
   border-radius: 100%;
 }
 
-.carousel-title-secondary {
-  font-size: 110px;
-  text-align: center;
-  font-weight: bolder;
-  border-radius: 100%;
-}
-
 .carousel-subtitle-secondary {
   font-weight: 400;
-  font-size: 30px;
-  border-radius: 100%;
-}
-
-.carousel-subtitle-tertiary {
-  font-size: 50px;
-  font-weight: bolder;
-  border-radius: 100%;
-}
-
-.carousel-subtitle {
-  font-weight: 450;
-  font-size: 40px;
+  font-size: 150%;
   border-radius: 100%;
 }
 

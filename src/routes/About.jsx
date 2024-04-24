@@ -6,6 +6,9 @@ import aboutHeader from "../assets/about-page-header-img.jpeg";
 import carouselImage1 from "../assets/carousel-img1.jpg";
 import carouselImage2 from "../assets/carousel-img2.jpg";
 import carouselImage3 from "../assets/carousel-img3.jpg";
+import carouselImage4 from "../assets/carousel-img4.jpg";
+import carouselImage5 from "../assets/carousel-img5.jpg";
+import carouselImage6 from "../assets/carousel-img6.jpg";
 import "./About.css";
 import database from "../client";
 
@@ -16,6 +19,7 @@ const About = () => {
   const [usersCount, setUsersCount] = useState(0);
   const [totalFunded, setTotalFunded] = useState(0);
   const [categories, setCategories] = useState(0);
+  const [totalCompanies, setTotalCompanies] = useState(0);
 
   useEffect(() => {
     const getProject = async () => {
@@ -90,16 +94,32 @@ const About = () => {
       }
     };
 
+    const getTotalCompanies = async () => {
+        const {data, error} = await database
+          .from("projects")
+          .select("company");
+        
+        if (error) {
+          throw error;
+        }
+  
+        if (data) {
+          const uniqueCompanies = new Set(data.map(item => item.company)).size;
+          setTotalCompanies(uniqueCompanies);
+        }
+      };
+
     getCategories();
     getBackers();
     getProject();
     getFunded();
+    getTotalCompanies();
   }, []);
 
   // Function to format number to display in millions
   const formatToMillions = (number) => {
     return (number / 1000000).toLocaleString(undefined, {
-      maximumFractionDigits: 2,
+      maximumFractionDigits: 1,
     });
   };
 
@@ -123,15 +143,15 @@ const About = () => {
       </Row>
 
       <Row>
-        <h1>Our Impact</h1>
+        <h1>Why join us?</h1>
       </Row>
 
       <Row className="mt-3">
         <Col>
           <Card style={{ borderRadius: "30px", overflow: "hidden" }}>
             {/* adjust image size and colors manually to fix carousel */}
-            <Carousel>
-              <Carousel.Item>
+            <Carousel fade>
+              <Carousel.Item interval={5000}>
                 <Image
                   src={carouselImage2}
                   className="img-fluid"
@@ -139,18 +159,18 @@ const About = () => {
                 />
                 <Carousel.Caption>
                   <p
-                    className="carousel-title-secondary"
+                    className="carousel-title"
                     style={{ fontWeight: "900" }}
                   >
-                    {formatToMillions(totalFunded)}
+                    {formatToMillions(totalFunded)}M
                   </p>
                   <p className="carousel-subtitle-secondary">
-                    Million Dollars Funded
+                    Dollars Funded
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
 
-              <Carousel.Item>
+              <Carousel.Item interval={5000}>
                 <Image
                   src={carouselImage1}
                   className="img-fluid"
@@ -158,7 +178,7 @@ const About = () => {
                 />
                 <Carousel.Caption>
                   <p className="carousel-title">{project}</p>
-                  <p className="carousel-subtitle">Projects Created</p>
+                  <p className="carousel-subtitle-secondary">Projects Created</p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
@@ -168,25 +188,24 @@ const About = () => {
         <Col>
           <Card style={{ borderRadius: "30px", overflow: "hidden" }}>
             {/* adjust image size and colors manually to fix carousel */}
-            <Carousel className="carousel-style">
-              <Carousel.Item>
+            <Carousel className="carousel-style" fade>
+              <Carousel.Item interval={5000}>
                 <Image
-                  src={carouselImage1}
+                  src={carouselImage6}
                   className="img-fluid"
                   alt="First slide"
                 />
                 <Carousel.Caption>
                   <p className="carousel-title">{usersCount}</p>
                   <p
-                    className="carousel-subtitle"
-                    style={{ fontWeight: "300" }}
+                    className="carousel-subtitle-secondary"
                   >
-                    Users published Projects
+                    User Published Projects
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
 
-              <Carousel.Item>
+              <Carousel.Item interval={5000}>
                 <Image
                   src={carouselImage3}
                   className="img-fluid"
@@ -206,26 +225,28 @@ const About = () => {
         <Col>
           <Card style={{ borderRadius: "30px", overflow: "hidden" }}>
             {/* adjust image size and colors manually to fix carousel */}
-            <Carousel className="carousel-style">
-              <Carousel.Item>
+            <Carousel className="carousel-style" fade>
+              <Carousel.Item interval={5000}>
                 <Image
-                  src={carouselImage1}
+                  src={carouselImage5}
                   className="img-fluid"
                   alt="First slide"
                 />
                 <Carousel.Caption>
-                  <p className="carousel-subtitle">First slide</p>
+                  <p className="carousel-title">{totalCompanies}</p>
+                  <p className="carousel-subtitle-secondary">Different Companies</p>
                 </Carousel.Caption>
               </Carousel.Item>
 
-              <Carousel.Item>
+              <Carousel.Item interval={5000}>
                 <Image
-                  src={carouselImage1}
+                  src={carouselImage4}
                   className="img-fluid"
                   alt="Second slide"
                 />
                 <Carousel.Caption>
-                  <p className="carousel-subtitle">Second slide</p>
+                  <p className="carousel-title-small">It's Free!</p>
+                  <p className="carousel-subtitle-secondary">No Hidden Fees</p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
@@ -234,7 +255,8 @@ const About = () => {
       </Row>
 
       <Row className="mt-5">
-        <h1>Meet the team</h1>
+        <h1>Let's get started!</h1>
+        <p className="mt-3" style={{ fontWeight: "400", fontSize: "25px" }}>Work in progress!</p>
       </Row>
     </Container>
   );
