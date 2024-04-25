@@ -16,12 +16,18 @@ const FundViewer = ({token}) => {
   
   // false -> ascending order, true -> descending order
   const sortFunds = (DescOrder) => {
-    if(DescOrder) {
-        
-    }
-    else{
-      
-    }
+    let Sorted_data;
+
+    if(DescOrder) 
+        Sorted_data =    [...funds].sort((f1, f2) => {
+                              return f2.amt - f1.amt;
+                         });
+    else
+       Sorted_data =    [...funds].sort((f1, f2) => {
+                              return f1.amt - f2.amt;
+                        });
+    
+    setFunds(Sorted_data);
   }
 
   useEffect(()=>{
@@ -29,12 +35,13 @@ const FundViewer = ({token}) => {
     
     const getFunds = async () => {
        const {data} = await database.from('funds').select('*,users(*)').eq('project_id', pid);
-       setFunds(data);    
-       console.log(data);                                                  
+       let Sorted_data = [...data].sort((f1, f2) => {
+                            return f1.amt - f2.amt;
+                          });
+       setFunds(Sorted_data);                                                     
     }
 
     getFunds();
-    sortFunds(false);
   }, []);
 
 
@@ -57,7 +64,7 @@ const FundViewer = ({token}) => {
                </div>
              </div>    
 
-             <h3 className='heading kanit-bold'><span className='logo-color'>{funds.length}</span> Funds Pledged</h3>
+             <h3 className='heading kanit-bold'><span className='logo-color'>{funds.length}</span> Fund{(funds.length===1)?(''):('s')} Pledged</h3>
 
              <Table striped hover>
                 <thead>
