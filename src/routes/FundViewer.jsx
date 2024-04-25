@@ -1,8 +1,8 @@
 import React, { useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Stack, Form, Table } from 'react-bootstrap'
-import './FundViewer.css'
 import database from '../client'
+import '../styles/FundViewer.css'
 
 const FundViewer = ({token}) => {
 

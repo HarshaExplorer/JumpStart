@@ -8,8 +8,9 @@ import carouselImage3 from "../assets/carousel-img3.jpg";
 import carouselImage4 from "../assets/carousel-img4.jpg";
 import carouselImage5 from "../assets/carousel-img5.jpg";
 import carouselImage6 from "../assets/carousel-img6.jpg";
-import "./About.css";
-import database from "../client";
+import database from '../client'
+import "../styles/About.css";
+
 
 const About = () => {
   const [project, setProject] = useState(false);

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams} from 'react-router-dom'
 import {Stack, Image, Form, InputGroup, Button} from 'react-bootstrap'
-import './ProjectPage.css'
-import Compass from '../assets/compass.png'
 import database from '../client';
+import '../styles/ProjectPage.css'
+import Compass from '../assets/compass.png'
 
 
 

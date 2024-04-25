@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import MakeProject from './MakeProject';
 import database from '../client';
 

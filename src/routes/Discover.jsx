@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import QueryTool from '../components/QueryTool'
 import ProjectCard from '../components/ProjectCard'
-import '../components/menu.css'
+import '../styles/menu.css'
 
 const Discover = () => {
   

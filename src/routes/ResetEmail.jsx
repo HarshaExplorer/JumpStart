@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import database from '../client.js'
-import './Auth.css'
+import '../styles/Auth.css'
 
 const ResetEmail = () => {
   const navigate = useNavigate();

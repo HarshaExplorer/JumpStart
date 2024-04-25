@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import "./menu.css"
+import "../styles/menu.css"
 
 const Menu = ({token}) => {
     return (

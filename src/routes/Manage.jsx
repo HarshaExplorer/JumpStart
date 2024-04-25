@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Navigate, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import QueryTool from '../components/QueryTool'
 import ProjectCard from '../components/ProjectCard'
 import {Col, Row} from 'react-bootstrap'
-import './Manage.css'
+import '../styles/Manage.css'
 
 const Manage = ({token=false}) => {
   const [resultSet, setResultSet] = useState(false);

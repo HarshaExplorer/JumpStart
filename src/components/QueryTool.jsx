@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Button, Form, Stack} from 'react-bootstrap'
 import database from '../client';
-import './menu.css'
+import '../styles/menu.css'
 
 const QueryTool = ({resultSet, setResultSet, manage=false}) => { 
   

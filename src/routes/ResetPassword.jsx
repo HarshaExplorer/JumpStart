@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import database from '../client.js'
-import './Auth.css'
+import '../styles/Auth.css'
 
 const ResetPassword = () => {
 

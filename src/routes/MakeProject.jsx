@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import {Stack, Button, Form} from 'react-bootstrap'
-import './MakeProject.css'
 import validator from 'validator'
 import database from '../client'
+import '../styles/MakeProject.css'
 
 const MakeProject = ({token, project=false}) => {
     

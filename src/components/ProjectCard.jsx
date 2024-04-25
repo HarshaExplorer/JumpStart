@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {Card, ButtonGroup, Button, ProgressBar } from 'react-bootstrap'
 import database from '../client'
 import "bootstrap-icons/font/bootstrap-icons.css"
-import './menu.css'
+import '../styles/menu.css'
 
 const ProjectCard = ({project, manage=false}) => {
   

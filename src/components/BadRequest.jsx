@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { Typewriter } from 'react-simple-typewriter'
-import './menu.css'
+import '../styles/menu.css'
 
 const BadRequest = () => {
 

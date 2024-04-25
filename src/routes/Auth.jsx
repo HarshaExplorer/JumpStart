@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import { Typewriter } from 'react-simple-typewriter'
 import database from '../client.js'
-import './Auth.css'
+import '../styles/Auth.css'
 
 
 const Auth = ({setToken, token}) => {
