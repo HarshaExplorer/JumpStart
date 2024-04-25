@@ -74,7 +74,7 @@ function App() {
       },
       {
         path: "/authenticate",
-        element: <Auth setToken={setToken}/>
+        element: <Auth setToken={setToken} token={token}/>
       },
       {
         path: "/reset-password",

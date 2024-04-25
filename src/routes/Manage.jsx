@@ -1,22 +1,33 @@
-import React, {useState} from 'react'
-import {Navigate} from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import {Navigate, useNavigate} from 'react-router-dom'
 import QueryTool from '../components/QueryTool'
 import ProjectCard from '../components/ProjectCard'
 import {Col, Row} from 'react-bootstrap'
 import './Manage.css'
 
-const Manage = ({token}) => {
+const Manage = ({token=false}) => {
   const [resultSet, setResultSet] = useState(false);
   let manage = false;
-
+  
+  const navigate = useNavigate();
+  
   if (token){
      manage = {
          header: 'Here you can track & refine your projects.',
          headerMarginTop: '',
          user: token.user.id
       }
+      console.log(token);
+  }
+  else if(!token){
+    setTimeout(()=>{navigate('/authenticate')}, 50);
   }
 
+
+  useEffect(()=>{
+    document.body.style.backgroundColor = '#272b33';
+  }, []);
+  
   return (
           <>
             {token &&
@@ -33,12 +44,10 @@ const Manage = ({token}) => {
                        );
                      })}
                 </Row> 
-              </div> 
+              </div>
             }
-
-           {!token && <Navigate to='/authenticate' replace/>}
           </>
-         )
+        );
 }
 
 export default Manage;

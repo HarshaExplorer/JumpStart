@@ -6,13 +6,17 @@ import database from '../client.js'
 import './Auth.css'
 
 
-const Auth = ({setToken}) => {
+const Auth = ({setToken, token}) => {
   const navigate = useNavigate();
 
   const updatedb = async (data) => {
    const userin = await database.from('users').select().eq('id',`${data.user.id}`);
    if(userin.data.length === 0)
       await database.from('users').insert({id: data.user.id, email: `${data.user.email}`, full_name: `${data.user.user_metadata.fullname}`});
+  }
+
+  if(token){
+   setTimeout(()=>{navigate('/manage', {replace:true});}, 20);
   }
 
   const [formData, setFormData] = useState({
@@ -35,7 +39,7 @@ const Auth = ({setToken}) => {
         if(data.user){
            setToken(data);
            updatedb(data);
-           navigate('/manage');
+           navigate('/manage', {replace: true});
         }
         else {
            setFormData({...formData, password:''});

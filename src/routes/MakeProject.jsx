@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
-import {Stack, Button, Form, Container } from 'react-bootstrap'
+import {Stack, Button, Form} from 'react-bootstrap'
 import './MakeProject.css'
 import validator from 'validator'
 import database from '../client'

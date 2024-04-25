@@ -110,10 +110,7 @@ const ProjectPage = ({token}) => {
                      }
 
                      {!token && Number(project_life)>0 && <p className='mx-auto' style={{color: 'red'}}>*must be logged in to contribute funds</p>}
-                       
-                      
-                      
-                    
+                             
                 </Stack>
              </Stack>
           </Stack>

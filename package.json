@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
@@ -15,6 +16,7 @@
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "react-simple-typewriter": "^5.0.1",
+    "react-validator": "^0.1.0",
     "validator": "^13.11.0",
     "web-vitals": "^2.1.4"
   },

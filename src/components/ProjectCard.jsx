@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import {Card, ButtonGroup, Button, ProgressBar } from 'react-bootstrap'
+import database from '../client'
+import "bootstrap-icons/font/bootstrap-icons.css"
 import './menu.css'
 
 const ProjectCard = ({project, manage=false}) => {
@@ -19,6 +21,19 @@ const ProjectCard = ({project, manage=false}) => {
           navigate(`/manage/funds/${project.pid}`);
   }
 
+  const deleteProject = async () => {
+      const remove = window.confirm(`Are you sure to delete project "${project.title}"?`);
+
+      if(remove){
+         const {error} = await database.from('projects').delete().eq('pid', project.pid);
+
+         if(error)
+            alert('Project deletion unsuccessful. Please try again later.');
+         
+         window.location.reload();
+      }
+  }
+
   return (
     <>
       <Card  className='project-card'>
@@ -32,11 +47,12 @@ const ProjectCard = ({project, manage=false}) => {
             </Card.Text>
             <ProgressBar className='mb-2' variant={'success'} now={project.fundRatio} />
             <ButtonGroup>
-            <Button variant={(manage)?("outline-danger"):("primary")} name="view" onClick={redirectProjectPage}>View</Button>
+            <Button variant={(manage)?("outline-light"):("primary")} name="view" onClick={redirectProjectPage}>View</Button>
                   {manage &&
                      <>
-                       <Button  variant="outline-danger" name="edit" onClick={redirectProjectPage}>Edit</Button>
-                       <Button  variant="outline-danger" name="funds" onClick={redirectProjectPage}>Track Funds</Button>
+                       <Button  variant="outline-light" name="edit" onClick={redirectProjectPage}>Edit</Button>
+                       <Button  variant="outline-light" name="funds" onClick={redirectProjectPage}>Track Funds</Button>
+                       <Button  variant="outline-danger" onClick={deleteProject}><i className="bi bi-trash"></i></Button>
                      </>        
                   }
             </ButtonGroup>
