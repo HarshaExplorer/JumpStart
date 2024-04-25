@@ -17,7 +17,6 @@ const Manage = ({token=false}) => {
          headerMarginTop: '',
          user: token.user.id
       }
-      console.log(token);
   }
   else if(!token){
     setTimeout(()=>{navigate('/authenticate')}, 50);

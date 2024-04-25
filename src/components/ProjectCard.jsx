@@ -18,7 +18,7 @@ const ProjectCard = ({project, manage=false}) => {
       else if (e.target.name === 'edit')
           navigate(`/manage/edit/${project.pid}`);
       else if (e.target.name === 'funds')
-          navigate(`/manage/funds/${project.pid}`);
+          navigate(`/manage/funds/${project.pid}/${project.title}`);
   }
 
   const deleteProject = async () => {

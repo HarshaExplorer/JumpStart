@@ -44,7 +44,6 @@ const MakeProject = ({token, project=false}) => {
           let data, error;
          
           if(project){
-               console.log(formData);
                const proj = await database.from('projects').update({
                                                       category: formData.category,
                                                       company: formData.company,

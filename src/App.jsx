@@ -61,7 +61,7 @@ function App() {
         element: <Manage token={token} />
       },
       {
-        path: "/manage/funds/:pid",
+        path: "/manage/funds/:pid/:projectTitle",
         element: <FundViewer token={token} />
       },
       {
