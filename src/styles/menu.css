@@ -16,12 +16,20 @@
   min-height: 300px;
 }
 
+.search-bar {
+  box-shadow: 2px 2px 2px #363b47;
+}
+
+.search-bar:hover {
+  box-shadow: 3px 3px 3px #52596b;
+}
+
 .filter-border {
-  box-shadow: 1px 1px 1px white;
+  box-shadow: 1px 1px 1px rgb(71, 71, 71);
 }
 
 .filter-border:hover {
-  box-shadow: 3px 3px 3px #000000;
+  box-shadow: 3px 3px 3px #b8b8b8;
 }
 
 .kanit-bold {
@@ -115,27 +123,22 @@
   object-fit: cover;
 }
 
-
-.project-card:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-}
-
 .project-card {
   border-radius: 10px;
-  background-color: 'inherit';
-  border-color: 'white';
+  background-color: "inherit";
+  border-color: "white";
   transition: all 0.3s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
 .query-tool-text {
   color: white;
 }
 
-.discover-page{
+.discover-page {
   background-color: #272b33;
   padding: 20px;
 }

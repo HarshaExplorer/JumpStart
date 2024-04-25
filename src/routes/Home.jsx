@@ -1,33 +1,50 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "../styles/Home.css";
+import { motion } from "framer-motion";
 
 const Home = ({ token, setToken }) => {
   return (
     <div className="landing-container">
       <div className="landing-content">
-        <h1 className="landing-name kanit-bold">
+        <motion.h1
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 100 }}
+          transition={{ delay: 0.2 }}
+          className="landing-name kanit-bold"
+        >
           <span style={{ color: "#6ee397" }}>Jump</span>Start
-        </h1>
-        <h1 className="landing-title sanchez-regular">
+        </motion.h1>
+        <motion.h1
+          style={{ paddingBottom: "100px" }}
+          className="landing-title sanchez-regular"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 100 }}
+          transition={{ delay: 0.2 }}
+        >
           Empowering Innovators, Fueling Dreams.
-        </h1>
+        </motion.h1>
 
-        <h2>
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
           <span style={{ color: "white" }}>We're</span>{" "}
           <span className="typewriter-style">
             <Typewriter
               words={[
                 "more than just a platform.",
                 "a launchpad for your dreams.",
-                "a bridge that brings your projects to life.",
+                "the bridge that brings your projects to life.",
               ]}
               loop={true}
               cursor
               typeSpeed={40}
+              DelaySpeed={2}
             />
           </span>
-        </h2>
+        </motion.h2>
       </div>
     </div>
   );
