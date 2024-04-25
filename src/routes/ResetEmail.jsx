@@ -2,10 +2,16 @@ import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import database from '../client.js'
-import '../styles/Auth.css'
+import './Auth.css'
 
 const ResetEmail = () => {
   const navigate = useNavigate();
+  
+  useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
+    return () => {
+      document.body.style.backgroundColor = 'white'
+    }
+   },[]);
 
   const [formData, setFormData] = useState({
        email:''
@@ -34,11 +40,7 @@ const ResetEmail = () => {
      }
   }
 
-  useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
-    return () => {
-      document.body.style.backgroundColor = '#272b33'
-    }
-   },[]);
+  
 
   return (
    <div className='login-container mx-auto'>

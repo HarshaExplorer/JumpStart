@@ -8,13 +8,10 @@ import Manage from './routes/Manage'
 import Register from './routes/Register'
 import Auth from './routes/Auth'
 import ResetEmail from './routes/ResetEmail'
-import ResetPassword from './routes/ResetPassword'
-import Logout from './routes/Logout'
+import ResetPassword from './routes/ResetPassword';
+import Logout from './routes/Logout';
 import BadRequest from './components/BadRequest'
 import ProjectPage from './routes/ProjectPage'
-import MakeProject from './routes/MakeProject'
-import EditProject from './routes/EditProject'
-import FundViewer from './routes/FundViewer';
 
 function App() {
 
@@ -53,20 +50,8 @@ function App() {
           element: <ProjectPage token={token} />
       },
       {
-        path: "/manage/edit/:pid",
-        element: <EditProject token={token} />
-      },
-      {
         path: "/manage",
         element: <Manage token={token} />
-      },
-      {
-        path: "/manage/funds/:pid/:projectTitle",
-        element: <FundViewer token={token} />
-      },
-      {
-        path: "/start-project",
-        element: <MakeProject token={token} />
       },
       {
         path: "/register",
@@ -74,7 +59,7 @@ function App() {
       },
       {
         path: "/authenticate",
-        element: <Auth setToken={setToken} token={token}/>
+        element: <Auth setToken={setToken}/>
       },
       {
         path: "/reset-password",

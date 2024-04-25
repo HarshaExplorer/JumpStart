@@ -1,23 +1,25 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
-import { Typewriter } from 'react-simple-typewriter'
 import database from '../client.js'
-import '../styles/Auth.css'
+import './Auth.css'
 
 
-const Auth = ({setToken, token}) => {
+const Auth = ({setToken}) => {
   const navigate = useNavigate();
+
+  useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
+    return () => {
+      document.body.style.backgroundColor = 'white'
+    }
+  },[]);
+
 
   const updatedb = async (data) => {
    const userin = await database.from('users').select().eq('id',`${data.user.id}`);
    if(userin.data.length === 0)
       await database.from('users').insert({id: data.user.id, email: `${data.user.email}`, full_name: `${data.user.user_metadata.fullname}`});
-  }
-
-  if(token){
-   setTimeout(()=>{navigate('/manage', {replace:true});}, 20);
-  }
+ }
 
   const [formData, setFormData] = useState({
        email:'', password:''
@@ -39,7 +41,7 @@ const Auth = ({setToken, token}) => {
         if(data.user){
            setToken(data);
            updatedb(data);
-           navigate('/manage', {replace: true});
+           navigate('/manage');
         }
         else {
            setFormData({...formData, password:''});
@@ -52,24 +54,10 @@ const Auth = ({setToken, token}) => {
      }
   }
 
-  useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
-   return () => {
-    document.body.style.backgroundColor = '#272b33'
-   }
-  },[]);
-
   return (
    <div className='login-container mx-auto'>
     <div className='container justity-content-center align-items-center'>
-       <h3 className='kanit-bold pb-3'>
-             <Typewriter 
-                  words={["Welcome!  Ready to Jump in?"]}
-                  loop={1}
-                  cursor
-                  typeSpeed={50}
-             />  
-        </h3>
-
+       <h3 className='kanit-bold pb-3'>Welcome!  Ready to Jump in?</h3>
        <Form onSubmit={handleSubmit}>
          <Form.Group className="mb-3" controlId="formEmail">
            <Form.Control type="email" name="email" placeholder="Email" onChange={handleChange}/>
