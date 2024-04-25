@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react'
 import { Typewriter } from 'react-simple-typewriter'
-import './menu.css'
+import '../styles/menu.css'
 
 const BadRequest = () => {
 
   useEffect(() => {
     document.body.style.backgroundColor = "#de4c35";
     return () => {
-       document.body.style.backgroundColor = "white";
+       document.body.style.backgroundColor = "#272b33";
     }
   }, [])
 

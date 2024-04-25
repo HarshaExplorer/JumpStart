@@ -1,0 +1,30 @@
+.image-container {
+    position: relative;
+    width: 75%;
+    margin: 0 auto;
+  }
+  .carousel-title-small {
+    font-size: 450%;
+    text-align: center;
+    font-weight: 900;
+    border-radius: 100%;
+  }
+  .carousel-title {
+    font-size: 650%;
+    text-align: center;
+    font-weight: 900;
+    border-radius: 100%;
+  }
+  
+  .carousel-subtitle-secondary {
+    font-weight: 400;
+    font-size: 150%;
+    border-radius: 100%;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    border-radius: 20% !important;
+    height: 5px !important;
+    width: 30px !important;
+  }
+  

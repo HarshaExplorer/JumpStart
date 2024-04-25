@@ -1,23 +1,43 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import {Card, Col, Row, Button, ProgressBar } from 'react-bootstrap'
-import './menu.css'
+import {Card, ButtonGroup, Button, ProgressBar } from 'react-bootstrap'
+import database from '../client'
+import "bootstrap-icons/font/bootstrap-icons.css"
+import '../styles/menu.css'
 
-const ProjectCard = ({project, width=''}) => {
+const ProjectCard = ({project, manage=false}) => {
   
   const navigate = useNavigate();  
   const today = new Date();
   const daysLeft = Math.round((Date.parse(project.deadline) - today) / (1000*60*60*24)) + 1;
   const singleDay = (daysLeft===1)?(true):(false);
   
-  const redirectProjectPage = () => {
-       navigate(`/discover/${project.pid}/${project.user_id}/${daysLeft}`);
+  const redirectProjectPage = (e) => {
+      if (e.target.name === 'view')
+          navigate(`/discover/${project.pid}/${project.user_id}/${daysLeft}`);
+      else if (e.target.name === 'edit')
+          navigate(`/manage/edit/${project.pid}`);
+      else if (e.target.name === 'funds')
+          navigate(`/manage/funds/${project.pid}/${project.title}`);
   }
-//#78f0ba
+
+  const deleteProject = async () => {
+      const remove = window.confirm(`Are you sure to delete project "${project.title}"?`);
+
+      if(remove){
+         const {error} = await database.from('projects').delete().eq('pid', project.pid);
+
+         if(error)
+            alert('Project deletion unsuccessful. Please try again later.');
+         
+         window.location.reload();
+      }
+  }
+
   return (
     <>
-      <Card  style={{ width: width, backgroundColor: 'inherit', borderColor: 'white'}}>
-         <Card.Img variant="top" style={{ height: "18rem"}} src={project.img_url} />
+      <Card  className='project-card'>
+         <Card.Img variant="top" className='project-card-img' src={project.img_url} />
          <Card.Body>
             <Card.Title>{project.title}</Card.Title>
             <Card.Text className='mb-2'>{project.company}</Card.Text>
@@ -26,7 +46,16 @@ const ProjectCard = ({project, width=''}) => {
                 {`${project.fundRatio}% funded`}
             </Card.Text>
             <ProgressBar className='mb-2' variant={'success'} now={project.fundRatio} />
-            <Button variant="primary" onClick={redirectProjectPage}>View</Button>
+            <ButtonGroup>
+            <Button variant={(manage)?("outline-light"):("primary")} name="view" onClick={redirectProjectPage}>View</Button>
+                  {manage &&
+                     <>
+                       <Button  variant="outline-light" name="edit" onClick={redirectProjectPage}>Edit</Button>
+                       <Button  variant="outline-light" name="funds" onClick={redirectProjectPage}>Track Funds</Button>
+                       <Button  variant="outline-danger" onClick={deleteProject}><i className="bi bi-trash"></i></Button>
+                     </>        
+                  }
+            </ButtonGroup>
          </Card.Body>
       </Card>
     </>
