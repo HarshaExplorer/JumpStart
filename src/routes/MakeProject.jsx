@@ -268,10 +268,11 @@ const MakeProject = ({ token, project = false }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.2 }}
+            className="mx-auto"
           >
             <Button
               variant={project ? "outline-danger" : "outline-success"}
-              className="jump-start-btn mx-auto"
+              className="jump-start-btn"
               onClick={validateProject}
             >
               {!project && (

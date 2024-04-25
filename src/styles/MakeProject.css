@@ -39,8 +39,9 @@
 }
 
 .jump-start-btn{
-    width: 30%;
+    width: fit-content;
 }
+
 
 .logo-color{
     color: #27e690;;
