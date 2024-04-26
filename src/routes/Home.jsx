@@ -1,28 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Home.css";
-import useTypewriter from "./useTypeWriter.js";
+import { Typewriter } from "react-simple-typewriter";
+import "../styles/Home.css";
+import { motion } from "framer-motion";
 
 const Home = ({ token, setToken }) => {
-  const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    setToken(null);
-  };
-
-  const fullText =
-    "At JumpStart, we're more than a platform – we're a launchpad for dreams. Here, innovation finds its voice, and passion fuels progress. JumpStart empowers you to turn potential into reality. Join us in shaping the future.";
-  const displayText = useTypewriter(fullText);
-
   return (
     <div className="landing-container">
       <div className="landing-content">
-        <h1 className="landing-name kanit-bold">
-          <span style={{ color: "#6ee397" }}>Jump</span>Start.
-        </h1>
-        <h1 className="landing-title sanchez-regular">
-          JumpStart: Empowering Innovators, Fueling Dreams.
-        </h1>
-        <h2 className="landing-h2 sanchez-regular">{displayText}</h2>
+        <motion.h1
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 100 }}
+          transition={{ delay: 0.2 }}
+          className="landing-name kanit-bold"
+          style={{ position: "fixed", top: 100, right: 70 }}
+        >
+          <span style={{ color: "#43db78" }}>Jump</span>Start
+        </motion.h1>
+        <motion.h1
+          className="landing-title sanchez-regular"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 100 }}
+          transition={{ delay: 0.2 }}
+          style={{ position: "fixed", top: 230, right: 70 }}
+        >
+          Empowering Innovators, Fueling Dreams.
+        </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{ position: "fixed", top: 660, right: 650 }}
+        >
+          <span style={{ color: "white" }}>We're</span>{" "}
+          <span className="typewriter-style">
+            <Typewriter
+              words={[
+                "more than just a platform.",
+                "a launchpad for your dreams.",
+                "the bridge that brings your projects to life.",
+              ]}
+              loop={true}
+              cursor
+              typeSpeed={40}
+              DelaySpeed={2}
+            />
+          </span>
+        </motion.h2>
       </div>
     </div>
   );

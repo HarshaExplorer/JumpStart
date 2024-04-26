@@ -1,42 +1,87 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Manage.css"; // Import your CSS file for styling
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import QueryTool from "../components/QueryTool";
+import ProjectCard from "../components/ProjectCard";
+import { Col, Row } from "react-bootstrap";
+import "../styles/Manage.css";
+import { motion } from "framer-motion";
 
-const Manage = () => {
+const Manage = ({ token = false }) => {
+  document.body.style.backgroundColor = "#272b33";
+  const [resultSet, setResultSet] = useState(false);
+  let manage = false;
+
+  const navigate = useNavigate();
+
+  if (token) {
+    manage = {
+      header: "Here you can track & refine your projects.",
+      headerMarginTop: "",
+      user: token.user.id,
+    };
+  } else if (!token) {
+    setTimeout(() => {
+      navigate("/authenticate");
+    }, 50);
+  }
+
+  useEffect(() => {
+    document.body.style.backgroundColor = "#272b33";
+  }, []);
+
   return (
-    <div className="home-container">
-      <div className="box admin-panel">
-        <h2>Admin Panel</h2>
-        <p>
-          Controls to approve/decline or view properties of a project
-          <p>Monitorfunds and project details.</p>
-        </p>
-        <Link to="/manage" className="btn btn-primary">
-          Go to Admin Panel
-        </Link>
-      </div>
-      <div className="box create-project">
-        <h2>Create a Project</h2>
-        <p>Where users can create their projects.</p>
-        <Link to="/register" className="btn btn-primary">
-          Create Project
-        </Link>
-      </div>
-      <div className="box project-directory">
-        <h2>Project Directory</h2>
-        <p>Where users can look in the database for projects.</p>
-        <Link to="/discover" className="btn btn-primary">
-          Explore Projects
-        </Link>
-      </div>
-      <div className="box connections">
-        <h2>Connections</h2>
-        <p>Connect with other people to send and receive messages.</p>
-        <Link to="/connections" className="btn btn-primary">
-          Connect with Others
-        </Link>
-      </div>
-    </div>
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        {token && (
+          <div data-bs-theme="dark" className="manage-container">
+            <h3 className="kanit-bold text-center" style={{ color: "white" }}>
+              Welcome
+              {token.user.identities[0].identity_data.fullname
+                ? ", " + token.user.identities[0].identity_data.fullname
+                : ""}
+              !
+            </h3>
+
+            <motion.div
+              initial={{ y: 0, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.2 }}
+            >
+              <QueryTool
+                resultSet={resultSet}
+                setResultSet={setResultSet}
+                manage={manage}
+              />
+            </motion.div>
+            <Row md={4} sm={2} className="g-4 p-2">
+              {resultSet &&
+                resultSet.map((p) => {
+                  return (
+                    <motion.Col
+                      key={p.pid}
+                      md
+                      initial={{ y: 50, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.2, delay: 0.2 }}
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 1.03 }}
+                      >
+                        <ProjectCard project={p} manage={true} />
+                      </motion.div>
+                    </motion.Col>
+                  );
+                })}
+            </Row>
+          </div>
+        )}
+      </motion.div>
+    </>
   );
 };
 

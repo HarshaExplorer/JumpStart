@@ -2,18 +2,12 @@ import React, {useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Button, Form} from 'react-bootstrap'
 import database from '../client.js'
-import './Auth.css'
+import '../styles/Auth.css'
 
 const ResetPassword = () => {
-    const navigate = useNavigate();
 
-    useEffect(() => {
-      document.body.style.backgroundColor = "#78f0ba";
-      return () => {
-         document.body.style.backgroundColor = "white";
-      }
-    }, [])
-    
+    const navigate = useNavigate();
+   
     const [formData, setFormData] = useState({
          password:''
     })
@@ -45,7 +39,11 @@ const ResetPassword = () => {
        }
     }
   
-    
+    useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
+       return () => {
+        document.body.style.backgroundColor = '#272b33'
+       }
+     },[]);  
   
     return (
      <div className='login-container mx-auto'>

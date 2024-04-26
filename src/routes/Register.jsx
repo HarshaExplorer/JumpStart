@@ -1,19 +1,13 @@
-import React, {useEffect, useState} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import React, {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
+import { Typewriter } from 'react-simple-typewriter'
 import {Button, Form} from 'react-bootstrap'
 import database from '../client.js'
-import './Auth.css'
+import '../styles/Auth.css'
 
 const Register = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    document.body.style.backgroundColor = "#78f0ba";
-    return () => {
-       document.body.style.backgroundColor = "white";
-    }
-  }, [])
-  
   const [formData, setFormData] = useState({
        email:'', password:'', fullname:''
   })
@@ -52,12 +46,26 @@ const Register = () => {
      }
   }
 
+  useEffect(()=>{ document.body.style.backgroundColor = '#78f0ba';   
+    return () => {
+    document.body.style.backgroundColor = '#272b33';
+   }
+  },[]);
+
   
 
   return (
    <div className='login-container mx-auto'>
     <div className='container justity-content-center align-items-center'>
-       <h3 className='kanit-bold pb-3'>We're glad you're joining us!</h3>
+       <h3 className='kanit-bold pb-3'>
+             <Typewriter 
+                  words={["We're glad you're joining us!"]}
+                  loop={1}
+                  cursor
+                  typeSpeed={50}
+             />  
+        </h3>
+
        <Form onSubmit={handleSubmit}>
 
          <Form.Group className="mb-3" controlId="formName">
@@ -73,7 +81,7 @@ const Register = () => {
          </Form.Group>
    
          <Button className="btn-success" type="submit">
-            Sign In
+            Create Account
          </Button>
        </Form>
     </div>
