@@ -2,10 +2,13 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "../styles/Home.css";
 import { motion } from "framer-motion";
+import videoBg from '../assets/background-home.mp4'
 
 const Home = ({ token, setToken }) => {
   return (
+    
     <div className="landing-container">
+      <video className="background-video" src={videoBg} autoPlay loop muted />
       <div className="landing-content">
         <motion.h1
           initial={{ y: 20, opacity: 0 }}
