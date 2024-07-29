@@ -39,6 +39,13 @@ https://github.com/user-attachments/assets/12494ec0-1231-4d45-94f3-a75718d5e433
 Our authentication system ensures secure user access through a reliable process: sign up with email verification, hash passwords before storing them in our database, and safe password resets via email. Additionally, all routes are protected based on user roles and login status. 
 </p>
 
+## Help & Other Stats
+
+https://github.com/user-attachments/assets/66f153ad-22f2-4536-a55c-bdb4792fe5cd
+
+<p>
+The About page provides real-time statistics drawn from our live database, offering up-to-date insights into platform activity. It also features a section dedicated to answering frequently asked questions, helping users find the information they need quickly and easily.
+</p>
 
 
 
