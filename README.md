@@ -1,6 +1,6 @@
 # JumpStart: A Dynamic Crowdfunding Platform
 
-https://github.com/user-attachments/assets/162d0b7a-8df0-4e6f-b6c1-4e6d9da263d6
+<img src='./private/1-Landing_Page-gif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 ## Available Scripts
