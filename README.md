@@ -31,6 +31,13 @@ https://github.com/user-attachments/assets/28121fd6-a798-4a9c-8aae-0dec6a8eeb9a
 The Manage page allows users to efficiently edit or remove their projects. It also provides tools to oversee and manage the funds for each project they’ve published, ensuring complete control over their campaign’s progress and finances.
 </p>
 
+## Authentication System
+
+https://github.com/user-attachments/assets/12494ec0-1231-4d45-94f3-a75718d5e433
+
+<p>
+Our authentication system ensures secure user access through a reliable process: sign up with email verification, hash passwords before storing them in our database, and safe password resets via email. Additionally, all routes are protected based on user roles and login status. 
+</p>
 
 
 
