@@ -1,5 +1,8 @@
 # JumpStart: A Dynamic Crowdfunding Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<video width="320" height="240" autoplay loop muted>
+  <source src="./private/1-Landing_Page.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Available Scripts
