@@ -7,4 +7,12 @@
 <p>Built with ReactJS for a responsive and interactive frontend, along with Bootstrap and HTML5/CSS for a rich user interface. PostgreSQL ensures secure and fast data storage, while JWTs (JSON Web Tokens) provide robust authentication for our platform.</p>
 
 
-## Available Scripts
+## Discover Projects
+
+https://github.com/user-attachments/assets/a1aa7091-59a9-4dc4-a718-f89e024f17cf
+
+<p>
+The Discover page is where users can explore and browse a diverse array of projects published by others. It features smart filtering options, including sorting by most funded projects, searching by keywords, and filtering by category, to help users find and support the projects that interest them most.
+</p>
+
+
