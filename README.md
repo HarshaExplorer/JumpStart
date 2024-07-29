@@ -1,6 +1,6 @@
 # JumpStart: A Dynamic Crowdfunding Platform
 
-https://github.com/user-attachments/assets/616151a3-97ab-4fb9-bd1e-efb4254b1a0a
+https://github.com/user-attachments/assets/162d0b7a-8df0-4e6f-b6c1-4e6d9da263d6
 
 
 ## Available Scripts
