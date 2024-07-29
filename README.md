@@ -23,5 +23,16 @@ https://github.com/user-attachments/assets/92383c12-6507-4450-a129-fcd646d8b2ca
 Our platform allows you to launch your projects in 7 easy steps, turning your ideas into reality with minimal hassle.
 </p>
 
+## Manage Projects
+
+https://github.com/user-attachments/assets/28121fd6-a798-4a9c-8aae-0dec6a8eeb9a
+
+<p>
+The Manage page allows users to efficiently edit or remove their projects. It also provides tools to oversee and manage the funds for each project they’ve published, ensuring complete control over their campaign’s progress and finances.
+</p>
+
+
+
+
 
 
