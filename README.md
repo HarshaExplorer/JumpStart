@@ -1,10 +1,10 @@
-# JumpStart: A Dynamic Crowdfunding Platform
+# JumpStart: Crowdfunding Platform
 
 <img src='./private/1-Landing_Page-gif.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<p>Jumpstart is a dynamic crowdfunding platform designed to connect creators with backers who believe in their projects. Our platform allows users to easily create and manage projects, track progress, and engage with supporters.</p>
+<p>Jumpstart is a crowdfunding platform designed to connect creators with backers who believe in their projects. Our platform allows users to easily create and manage projects, track progress, and engage with supporters.</p>
 
-<p>Built with ReactJS for a responsive and interactive frontend, along with Bootstrap and HTML5/CSS for a rich user interface. PostgreSQL ensures secure and fast data storage, while JWTs (JSON Web Tokens) provide robust authentication for our platform.</p>
+<p>Built with ReactJS for a responsive and interactive frontend, along with Bootstrap and HTML5/CSS for a rich user interface. Utilized PostgreSQL for secure and fast data storage and Supabase for authentication.</p>
 
 
 ## Discover Projects
@@ -20,7 +20,7 @@ The Discover page is where users can explore and browse a diverse array of proje
 https://github.com/user-attachments/assets/92383c12-6507-4450-a129-fcd646d8b2ca
 
 <p>
-Our platform allows you to launch your projects in 7 easy steps, turning your ideas into reality with minimal hassle.
+This platform allows you to launch your projects in 7 easy steps, turning your ideas into reality with minimal hassle.
 </p>
 
 ## Manage Projects
@@ -36,7 +36,7 @@ The Manage page allows users to efficiently edit or remove their projects. It al
 https://github.com/user-attachments/assets/12494ec0-1231-4d45-94f3-a75718d5e433
 
 <p>
-Our authentication system ensures secure user access through a reliable process: sign up with email verification, hash passwords before storing them in our database, and safe password resets via email. Additionally, all routes are protected based on user roles and login status. 
+The authentication system ensures secure user access through a reliable process: sign up with email verification, hash passwords before storing them in our database, and safe password resets via email. Additionally, all routes are protected based on user roles and login status. 
 </p>
 
 ## Help & Other Stats
